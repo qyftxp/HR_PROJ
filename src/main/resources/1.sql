@@ -1,14 +1,11 @@
-                                                                 */
+
+/* 创建 HR_DB 数据库。                                                                              */ 
 
 
-/* 创建 HR_DB 数据库。                                                                              */
-use master  
+create database HR_DB; 
 
 
-create database "HR_DB" 
-
-
-use "HR_DB"  
+use HR_DB; 
                                                       
 create table users (            --登录用户表
 	u_id 			int   auto_increment primary key,    --user_id : 主键，自动增长列        
@@ -97,30 +94,29 @@ insert into config_major_kind values('04','生产部')
 /* 创建新表 "config_major"。                                                                       */
 /* "config_major" : 职位设置                                                                      */
 create table config_major ( 
-	mak_id int auto_increment primary key,  --config_major" : 职位设置
-	major_kind_id varchar(5) null,        --major_kind_id" : 职位分类编号
-	major_kind_name varchar(60) null,  --major_kind_name" : 职位分类名称 
-	major_id varchar(5) null,          --major_id" : 职位编号
-	major_name varchar(60) null,   --major_name" : 职位名称
-	test_amount smallint null)    --test_amount" : 题套数量  
+	mak_id int auto_increment primary key,  -- config_major" : 职位设置
+	major_kind_id varchar(5) not null,        -- major_kind_id" : 职位分类编号
+	major_kind_name varchar(60) not null,  -- major_kind_name" : 职位分类名称 
+	major_id varchar(5) not null,          -- major_id" : 职位编号
+	major_name varchar(60) not null,   --  major_name" : 职位名称
+	test_amount int not null)    -- test_amount" : 题套数量  
 
 
-
-insert into config_major values('01','销售','01','区域经理',0)
-insert into config_major values('01','销售','02','总经理',0)
-insert into config_major values('02','软件开发','01','项目经理',0)
-insert into config_major values('02','软件开发','02','程序员',0)
-insert into config_major values('03','人力资源','01','人事经理',0)
-insert into config_major values('03','人力资源','02','专员',0)
-insert into config_major values('04','生产部','01','主任',0)
-insert into config_major values('04','生产部','02','技术工人',0)
+select * from config_major;
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('01','销售','01','区域经理',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('01','销售','02','总经理',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('02','软件开发','01','项目经理',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('02','软件开发','02','程序员',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('03','人力资源','01','人事经理',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('03','人力资源','02','专员',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) values('04','生产部','01','主任',0);
+insert into config_major(major_kind_id,major_kind_name,major_id,,major_name,test_amount) values('04','生产部','02','技术工人',0);
 
 
 
 
 /* 创建新表 "HumanFile_dig"。                                                                     */
 /* "human_file_dig" : 记录人力资源档案所做的任何更改                                                         */
-                                                              */  
 create table human_file_dig ( 
 	hfd_id int auto_increment primary key,  --hfd_id" : 主键，自动增长列   
 	human_id varchar(30) not null,          --human_id" : 档案编号  
@@ -243,83 +239,83 @@ create table salary_standard_details (
 /* 创建新表 "salary_standard"。                                                                    */
 /* "salary_standard" : 薪酬标准基本信息表                                                              */
 create table salary_standard ( 
-	ssd_id int auto_increment primary key,        --ssd_id" : 主键，自动增长列
-	standard_id varchar(30) not null,					--standard_id" : 薪酬标准单编号    
-	standard_name varchar(60) not null,			--standard_name" : 薪酬标准单名称
-	designer varchar(60) not null,				--designer" : 制定者名字
-	register varchar(60) not null,				--register" : 登记人 
-	checker varchar(60) not null,					--checker" : 复核人
-	changer varchar(60) not null,					--changer" : 变更人
-	regist_time varchar(20) not null,				--regist_time" : 登记时间
-	check_time varchar(20) not null,					--check_time" : 复核时间 
-	change_time varchar(20) not null,				--check_time" : 复核时间 
-	salary_sum double(10,2) not null,					--salary_sum" : 薪酬总额 
-	check_status varchar(9) not null,				--check_status" : 是否经过复核 
-	change_status varchar(9) not null,				--change_status" : 更改状态 
-	check_comment text not null,					--check_comment" : 复核意见
-	remark text not null)  						--remark" : 备注 
+	ssd_id int auto_increment primary key,      -- ssd_id" : 主键，自动增长列
+	standard_id varchar(30) not null,			-- standard_id" : 薪酬标准单编号    
+	standard_name varchar(60) not null,			-- standard_name" : 薪酬标准单名称
+	designer varchar(60) not null,				-- designer" : 制定者名字
+	register varchar(60) not null,				-- register" : 登记人 
+	checker varchar(60) not null,				-- checker" : 复核人
+	changer varchar(60) not null,				-- changer" : 变更人
+	regist_time varchar(20) not null,			-- regist_time" : 登记时间
+	check_time varchar(20) not null,			-- check_time" : 复核时间 
+	change_time varchar(20) not null,			-- check_time" : 复核时间 
+	salary_sum double(10,2) not null,			 -- salary_sum" : 薪酬总额 
+	check_status varchar(9) not null,			-- check_status" : 是否经过复核 
+	change_status varchar(9) not null,			-- change_status" : 更改状态 
+	check_comment text not null,				-- check_comment" : 复核意见
+	remark text not null)  						-- remark" : 备注 
 
 	/* 创建新表 "salary_grant"。                                                                       */
 /* "salary_grant" : 薪酬发放登记表                                                                   */
-create table "salary_grant" ( 
-	sgr_id int auto_increment primary key,   --sgr_id" : 主键，自动增长列  
-	salary_grant_id varchar(30) not null,    --"salary_grant_id" : 薪酬发放编号 
-	department_name varchar(20) not null  , --部门名称
-	human_amount int not null,          --human_amount" : 总人数 
-	salary_sum double(10,2) not null,		--salary_sum" : 薪酬总额 
-	salary_paid_sum double(10,2) not null,         --salary_paid_sum" : 实发总金额
-	register varchar(60) not null,		 --register" : 登记人 
-	regist_time varchar(20) not null,		----"regist_time" : 登记时间
-	checker varchar(60) not null,			--checker" : 复核人 
-	check_time varcher(20) not null,			--check_time" : 复核时间 
-	check_status varcher(20) not null)  		--check_status" : 复核状态
+create table salary_grant( 
+	sgr_id int auto_increment primary key,   -- sgr_id  : 主键，自动增长列  
+	salary_grant_id varchar(30) not null,    -- alary_grant_id" : 薪酬发放编号 
+	department_name varchar(20) not null, -- 部门名称
+	human_amount int not null,          -- human_amount" : 总人数 
+	salary_sum double(10,2) not null,		-- salary_sum" : 薪酬总额 
+	salary_paid_sum double(10,2) not null,         -- salary_paid_sum" : 实发总金额
+	register varchar(60) not null,		 -- register" : 登记人 
+	regist_time varchar(20) not null,		-- regist_time" : 登记时间
+	checker varchar(60) not null,			-- checker" : 复核人 
+	check_time varchar(20) not null,			-- check_time" : 复核时间 
+	check_status varchar(20) not null)  		-- check_status" : 复核状态
 	
 	
 /* 创建新表 "salary_grant_details"。                                                               */
 /* "salary_grant_details" : 薪酬发放详细信息                                                          */
 create table salary_grant_details ( 
-	grd_id int auto_increment primary key,    --grd_id" : 主键，自动增长列    
-	salary_standard_id varchar(30) not null,  --salary_standard_id" : 薪酬标准单编号    
-	salary_grant_id varchar(30) not null,		--salary_grant_id" : 薪酬发放编号
-	human_id varchar(30) not null,				--human_id" : 档案编号  
-	human_name varchar(60) not null,			--human_name" : 姓名 
-	bouns_sum double(10,2) not null,					--bouns_sum" : 奖励金额
-	sale_sum double(10,2) not null,					--sale_sum" : 销售绩效金额 
-	deduct_sum double(10,2) not null,					--deduct_sum" : 应扣金额
-	salary_standard_sum double(10,2) not null,			--salary_standard_sum" : 标准薪酬总额
-	salary_paid_sum double(10,2) not null)  			--salary_paid_sum" : 实发薪酬总额
+	grd_id int auto_increment primary key,    -- grd_id" : 主键，自动增长列    
+	salary_standard_id varchar(30) not null,  -- salary_standard_id" : 薪酬标准单编号    
+	salary_grant_id varchar(30) not null,		-- salary_grant_id" : 薪酬发放编号
+	human_id varchar(30) not null,				-- human_id" : 档案编号  
+	human_name varchar(60) not null,			-- human_name" : 姓名 
+	bouns_sum double(10,2) not null,		 -- bouns_sum" : 奖励金额
+	sale_sum double(10,2) not null,					-- sale_sum" : 销售绩效金额 
+	deduct_sum double(10,2) not null,					-- deduct_sum" : 应扣金额
+	salary_standard_sum double(10,2) not null,			-- salary_standard_sum" : 标准薪酬总额
+	salary_paid_sum double(10,2) not null)  			-- salary_paid_sum" : 实发薪酬总额
 	
 
 
 /* 创建新表 "major_change"。                                                                       */
 /* "major_change" : 职位调动表                                                                     */
 create table major_change ( 
-	mch_id int auto_increment primary key,  --mch_id" : 主键，自动增长列  
-	department_name varchar(20) not null  , --部门名称
-	major_kind_id varchar(5) not null,  --major_kind_id" : 职位分类编号
-	major_kind_name varchar(60) not null,--major_kind_name" : 职位分类名称
-	major_id varchar(5) not null,--major_id" : 职位编号
-	major_name varchar(60) not null,--major_name" : 职位名称 
-	new_department_name varchar(20) not null  , --新部门名称
-	new_major_kind_id varchar(5) not null,  --new_major_kind_id" : 新职位分类编号
-	new_major_kind_name varchar(60) not null,--new_major_kind_name" : 新职位分类名称
-	new_major_id varchar(5) not null,  --new_major_id" : 新职位编号
-	new_major_name varchar(60) not null,--new_major_name" : 新职位名称
-	human_id varchar(30) not null,  --human_id" : 人力资源档案编号
-	human_name varchar(60) not null,--human_name" : 姓名 
-	salary_standard_id varchar(30) not null,--salary_standard_id" : 薪酬标准编号
-	salary_standard_name varchar(60) not null,--salary_standard_name" : 薪酬标准名称
-	salary_sum money not null,--salary_sum" : 薪酬总额 
-	new_salary_standard_id varchar(30) not null,--new_salary_standard_id" : 新薪酬标准编号
-	new_salary_standard_name varchar(60) not null,--new_salary_standard_name" : 新薪酬标准名称
-	new_salary_sum money not null,--new_salary_sum" : 新薪酬总额 
-	change_reason text not null,--change_reason" : 调动原因
-	check_reason text not null,--check_reason" : 审核通过意见 
-	check_status varchar(20) not null,--check_status" : 复核通过状态
-	register varchar(60) not null,--register" : 登记人
-	checker varchar(60) not null,--checker" : 复核人
-	regist_time varchar(20) not null,--regist_time" : 登记时间   
-	check_time varchar(20) not null)  --check_time" : 复核时间 
+	mch_id int auto_increment primary key,  -- mch_id" : 主键，自动增长列  
+	department_name varchar(20) not null  , -- 部门名称
+	major_kind_id varchar(5) not null,  -- major_kind_id" : 职位分类编号
+	major_kind_name varchar(60) not null,-- major_kind_name" : 职位分类名称
+	major_id varchar(5) not null,-- major_id" : 职位编号
+	major_name varchar(60) not null,-- major_name" : 职位名称 
+	new_department_name varchar(20) not null  , -- 新部门名称
+	new_major_kind_id varchar(5) not null,  -- new_major_kind_id" : 新职位分类编号
+	new_major_kind_name varchar(60) not null,-- new_major_kind_name" : 新职位分类名称
+	new_major_id varchar(5) not null,  -- new_major_id" : 新职位编号
+	new_major_name varchar(60) not null,-- new_major_name" : 新职位名称
+	human_id varchar(30) not null,  -- human_id" : 人力资源档案编号
+	human_name varchar(60) not null,-- human_name" : 姓名 
+	salary_standard_id varchar(30) not null,-- salary_standard_id" : 薪酬标准编号
+	salary_standard_name varchar(60) not null,-- salary_standard_name" : 薪酬标准名称
+	salary_sum double(9,2) not null,-- salary_sum" : 薪酬总额 
+	new_salary_standard_id varchar(30) not null,-- new_salary_standard_id" : 新薪酬标准编号
+	new_salary_standard_name varchar(60) not null,-- new_salary_standard_name" : 新薪酬标准名称
+	new_salary_sum double(9,2) not null,-- new_salary_sum" : 新薪酬总额 
+	change_reason text not null,-- change_reason" : 调动原因
+	check_reason text not null,-- check_reason" : 审核通过意见 
+	check_status varchar(20) not null,-- check_status" : 复核通过状态
+	register varchar(60) not null,-- register" : 登记人
+	checker varchar(60) not null,-- checker" : 复核人
+	regist_time varchar(20) not null,-- regist_time" : 登记时间   
+	check_time varchar(20) not null)  -- check_time" : 复核时间 
 
 
 
