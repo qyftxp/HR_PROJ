@@ -3,12 +3,13 @@
 /* 创建新表 "salary_standard_details"。                                                            */
 /* "salary_standard_details" : 薪酬标准单详细信息                                                      */ 
 create table salary_standard_details ( 
-	sdt_id int auto_increment primary key,    --sdt_id" : 主键，自动增长列 
-	standard_id varchar(30) not null,         --standard_id" : 薪酬标准单编号  
-	standard_name varchar(60) not null,       --standard_name" : 薪酬标准单名称 
-	item_id smallint not null,				  --item_id" : 薪酬项目序号
-	item_name varchar(60) not null,			--item_name" : 薪酬项目名称  
-	salary money not null)                    --salary" : 薪酬金额
+	sdt_id int auto_increment primary key,    -- sdt_id" : 主键，自动增长列 
+	standard_id varchar(30) not null,         -- standard_id" : 薪酬标准单编号  
+	standard_name varchar(60) not null,       -- standard_name" : 薪酬标准单名称 
+	item_id int not null,				  -- item_id" : 薪酬项目序号
+	item_name varchar(60) not null,			-- item_name" : 薪酬项目名称  
+	salary double(9,2) not null
+	)                    -- salary" : 薪酬金额
 	
 	
 
@@ -26,13 +27,17 @@ create table salary_standard (
 	changer varchar(60) not null,				-- changer" : 变更人
 	regist_time varchar(20) not null,			-- regist_time" : 登记时间
 	check_time varchar(20) not null,			-- check_time" : 复核时间 
-	change_time varchar(20) not null,			-- check_time" : 复核时间 
+	change_time varchar(20) not null,			-- check_time" : 变更时间 
 	salary_sum double(10,2) not null,			 -- salary_sum" : 薪酬总额 
 	check_status varchar(9) not null,			-- check_status" : 是否经过复核 
 	change_status varchar(9) not null,			-- change_status" : 更改状态 
 	check_comment text not null,				-- check_comment" : 复核意见
 	remark text not null)  						-- remark" : 备注 
 	
+insert into salary_standard(standard_id,standard_name,designer,register,checker,changer,regist_time,
+check_time,change_time,salary_sum,check_status,change_status,check_comment,remark) values(
+"S001","JAVA高级工程师","admin","bb","a","cc","2018826123512","2018827123512","无",500000.00,"正常",""
+);
 	
 	
 
