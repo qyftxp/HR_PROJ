@@ -6,63 +6,49 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = -4750369623346428567L;
 	
-	private Integer id;            
-	private String  name;
-	private String password;           				  
-	private String telephone; 						  
-	private String username;           				
-	private String isadmin;
-	
-	
-	public User(String name, String password) {
-		super();
-		this.name = name;
-		this.password = password;
+	private Integer u_id;            
+	private String  u_name;
+	private String u_true_name;           				  
+	private String user_position; 						  
+	private String u_password;
+	public Integer getU_id() {
+		return u_id;
 	}
-	public User() {
-		super();
+	public void setU_id(Integer u_id) {
+		this.u_id = u_id;
 	}
-	public Integer getId() {
-		return id;
+	public String getU_name() {
+		return u_name;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
 	}
-	public String getName() {
-		return name;
+	public String getU_true_name() {
+		return u_true_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setU_true_name(String u_true_name) {
+		this.u_true_name = u_true_name;
 	}
-	public String getPassword() {
-		return password;
+	public String getUser_position() {
+		return user_position;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUser_position(String user_position) {
+		this.user_position = user_position;
 	}
-	public String getTelephone() {
-		return telephone;
+	public String getU_password() {
+		return u_password;
 	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setU_password(String u_password) {
+		this.u_password = u_password;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getIsadmin() {
-		return isadmin;
-	}
-	public void setIsadmin(String isadmin) {
-		this.isadmin = isadmin;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", telephone=" + telephone
-				+ ", username=" + username + ", isadmin=" + isadmin + "]";
-	} 
+		return "User [u_id=" + u_id + ", u_name=" + u_name + ", u_true_name=" + u_true_name + ", user_position="
+				+ user_position + ", u_password=" + u_password + "]";
+	}           				
 	
 	
 	

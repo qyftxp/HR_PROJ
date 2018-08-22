@@ -32,6 +32,10 @@ create table salary_standard (
 	change_status varchar(9) not null,			-- change_status" : 更改状态 
 	check_comment text not null,				-- check_comment" : 复核意见
 	remark text not null)  						-- remark" : 备注 
+	
+	
+	
+
 
 	/* 创建新表 "salary_grant"。                                                                       */
 /* "salary_grant" : 薪酬发放登记表                                                                   */
