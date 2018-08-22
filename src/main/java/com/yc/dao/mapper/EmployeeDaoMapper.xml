@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yc.dao.EmployeeDaoMapper">
+	
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	
+	<sql id="conditionSql">
+		<where>
+			<if test="department_name !=null and department_name!=''">
+				department_name=#{department_name}
+			</if>
+			
+			<if test="human_major_kind_name !=null and human_major_kind_name!=''">
+				and human_major_kind_name=#{human_major_kind_name}
+			</if>
+			
+			<if test="hunma_major_name !=null and hunma_major_name!=''">
+				and hunma_major_name=#{hunma_major_name}
+			</if>
+			
+			<if test="regist_time !=null and regist_time!=''">
+				and regist_time = #{regist_time}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="orderSql">
+		<if test="orderby!=null and orderby!=''">
+			order by #{orderby}
+			<if test="orderway!=null and orderway!=''">
+				#{orderway}
+			</if>
+		</if>
+		
+	</sql>
+	
+	<!-- 分页条件的拼接 -->
+	<sql id="pageSql">
+		<if test="start!=null">
+			limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<!-- 根据条件查询 -->
+	<select id="findEmployee" resultType="Employee" parameterType="Map">
+		select * from human_file <include refid="conditionSql"/><include refid="orderSql"/><include refid="pageSql"/>
+	</select>
+	
+	<insert id="addEmployee" parameterType="Employee" keyProperty="huf_id" useGeneratedKeys="true">
+		insert into human_file(human_id,department_name,human_name,human_address,human_postcode,human_major_kind_name,hunma_major_name,human_mobilephone,
+		human_bank,human_account,human_qq,human_email,human_hobby,human_speciality,human_sex,human_party,human_nationality,human_race,human_birthday,human_birthplace,
+		human_age,human_educated_degree,human_educated_years,human_educated_major,human_id_card,remark,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,
+		major_change_amount,file_chang_amount,human_histroy_id,human_family_membership,human_picture,check_status,register,checker,changer,regist_time,check_time,change_time,
+		lastly_change_time,delete_time,recovery_time,human_file_status) valuse()
+	</insert>
+	
+	
+</mapper>
