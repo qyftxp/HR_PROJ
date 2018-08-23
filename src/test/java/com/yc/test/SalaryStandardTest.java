@@ -33,7 +33,7 @@ public class SalaryStandardTest {
 	
 	@Test
 	public void test1(){
-		System.out.println(salaryDaoImpl.findByStandard_id(""));
+		System.out.println(salaryDaoImpl.findByStandard_id("S001"));
 	}
 	
 	@Test

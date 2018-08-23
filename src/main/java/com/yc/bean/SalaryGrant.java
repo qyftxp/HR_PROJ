@@ -2,50 +2,94 @@ package com.yc.bean;
 
 import java.io.Serializable;
 
-public class SalaryGrant implements Serializable {
+public class SalaryGrant implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private Integer sdt_id ;// sdt_id" : 主键，自动增长列 
-	private String standard_id ;//standard_id" : 薪酬标准单编号  
-	private String standard_name ;// standard_name" : 薪酬标准单名称 
-	private Integer item_id ;// item_id" : 薪酬项目序号
-	private String item_name ;//item_name" : 薪酬项目名称  
-	private Double salary ;// salary" : 薪酬金额
-	public Integer getSdt_id() {
-		return sdt_id;
+	private Integer sgr_id ;//sgr_id  : 主键，自动增长列  
+	private String salary_grant_id ;//alary_grant_id" : 薪酬发放编号 
+	private String department_name ;//部门名称
+	private Integer human_amount;//human_amount" : 总人数 
+	private Double salary_sum ;// salary_sum" : 薪酬总额 
+	private Double salary_paid_sum ;//salary_paid_sum" : 实发总金额
+	private String register ;//register" : 登记人 
+	private String regist_time; //regist_time" : 登记时间
+	private String checker ;//checker" : 复核人 
+	private String check_time ;//check_time" : 复核时间 
+	private String check_status ;// check_status" : 复核状态
+	public Integer getSgr_id() {
+		return sgr_id;
 	}
-	public void setSdt_id(Integer sdt_id) {
-		this.sdt_id = sdt_id;
+	public void setSgr_id(Integer sgr_id) {
+		this.sgr_id = sgr_id;
 	}
-	public String getStandard_id() {
-		return standard_id;
+	public String getSalary_grant_id() {
+		return salary_grant_id;
 	}
-	public void setStandard_id(String standard_id) {
-		this.standard_id = standard_id;
+	public void setSalary_grant_id(String salary_grant_id) {
+		this.salary_grant_id = salary_grant_id;
 	}
-	public String getStandard_name() {
-		return standard_name;
+	public String getDepartment_name() {
+		return department_name;
 	}
-	public void setStandard_name(String standard_name) {
-		this.standard_name = standard_name;
+	public void setDepartment_name(String department_name) {
+		this.department_name = department_name;
 	}
-	public Integer getItem_id() {
-		return item_id;
+	public Integer getHuman_amount() {
+		return human_amount;
 	}
-	public void setItem_id(Integer item_id) {
-		this.item_id = item_id;
+	public void setHuman_amount(Integer human_amount) {
+		this.human_amount = human_amount;
 	}
-	public String getItem_name() {
-		return item_name;
+	public Double getSalary_sum() {
+		return salary_sum;
 	}
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public void setSalary_sum(Double salary_sum) {
+		this.salary_sum = salary_sum;
 	}
-	public Double getSalary() {
-		return salary;
+	public Double getSalary_paid_sum() {
+		return salary_paid_sum;
 	}
-	public void setSalary(Double salary) {
-		this.salary = salary;
+	public void setSalary_paid_sum(Double salary_paid_sum) {
+		this.salary_paid_sum = salary_paid_sum;
 	}
+	public String getRegister() {
+		return register;
+	}
+	public void setRegister(String register) {
+		this.register = register;
+	}
+	public String getRegist_time() {
+		return regist_time;
+	}
+	public void setRegist_time(String regist_time) {
+		this.regist_time = regist_time;
+	}
+	public String getChecker() {
+		return checker;
+	}
+	public void setChecker(String checker) {
+		this.checker = checker;
+	}
+	public String getCheck_time() {
+		return check_time;
+	}
+	public void setCheck_time(String check_time) {
+		this.check_time = check_time;
+	}
+	public String getCheck_status() {
+		return check_status;
+	}
+	public void setCheck_status(String check_status) {
+		this.check_status = check_status;
+	}
+	@Override
+	public String toString() {
+		return "SalaryGrant [sgr_id=" + sgr_id + ", salary_grant_id=" + salary_grant_id + ", department_name="
+				+ department_name + ", human_amount=" + human_amount + ", salary_sum=" + salary_sum
+				+ ", salary_paid_sum=" + salary_paid_sum + ", register=" + register + ", regist_time=" + regist_time
+				+ ", checker=" + checker + ", check_time=" + check_time + ", check_status=" + check_status + "]";
+	}
+	
+	
 	
 	
 }

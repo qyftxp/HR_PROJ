@@ -12,6 +12,10 @@ public class SalaryStandardDaoImpl implements SalaryStandardDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	/**根据薪酬标准ID查询薪酬标准基本信息
+	 * @param id  薪酬标准ID
+	 * @return 薪酬标准基本信息Bean
+	 */
 	@Override
 	public SalaryStandard findByStandard_id(String id) {
 		return this.sqlSession.selectOne("com.yc.dao.SalaryStandardDaoMapper.getSalaryStandardById", id);
