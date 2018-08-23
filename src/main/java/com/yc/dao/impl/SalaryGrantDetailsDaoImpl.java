@@ -16,5 +16,9 @@ public class SalaryGrantDetailsDaoImpl implements SalaryGrantDetailsDao {
 	public List<SalaryGrantDetails> findByid(String id) {
 		return this.sqlSession.selectList("com.yc.dao.SalaryGrantDetailsDaoMapper.getSalaryGrantDetailsByid", id);
 	}
+	@Override
+	public void addSalaryStandardDetailsList(List<SalaryGrantDetails> list) {
+		this.sqlSession.insert("com.yc.dao.SalaryGrantDetailsDaoMapper.addSalaryStandardDetailsList", list);
+	}
 
 }

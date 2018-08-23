@@ -10,5 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllSalaryGrant" resultType="SalaryGrant" >
 		select * from salary_grant  
 	</select>
+	<!-- 插入数据 -->
+	<insert id="addSalaryGrant" parameterType="SalaryGrant">
+		insert into salary_grant(
+			salary_grant_id,department_name,human_amount,salary_sum,
+			salary_paid_sum,register,regist_time,checker ;,check_time,check_status
+		)values(
+			#{salary_grant_id},#{department_name},#{human_amount},#{salary_sum},
+			#{salary_paid_sum},#{register},#{regist_time,#{checker},#{check_time},#{check_status}
+		)
+	</insert>
 	
 </mapper>

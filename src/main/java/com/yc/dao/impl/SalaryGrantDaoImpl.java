@@ -16,5 +16,9 @@ public class SalaryGrantDaoImpl implements SalaryGrantDao {
 	public List<SalaryGrant> findAll() {
 		return this.sqlSession.selectList("com.yc.dao.SalaryGrantDaoMapper.getAllSalaryGrant");
 	}
+	@Override
+	public void addSalaryGrant(SalaryGrant sg) {
+		this.sqlSession.insert("com.yc.dao.SalaryGrantDaoMapper.addSalaryGrant",sg);
+	}
 
 }

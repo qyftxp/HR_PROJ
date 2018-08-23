@@ -17,10 +17,10 @@ import com.yc.dao.SalaryStandardDao;
 @SpringBootTest
 public class SalaryStandardTest {
 	@Resource(name="salaryStandardDaoImpl")
-	private SalaryStandardDao salaryDaoImpl;
+	private SalaryStandardDao salaryStandardDaoImpl;
 	
 	@Test
 	public void test1(){
-		System.out.println(salaryDaoImpl.findByStandard_id("S001"));
+		System.out.println(salaryStandardDaoImpl.findByStandard_id("S001"));
 	}
 }

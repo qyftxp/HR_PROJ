@@ -21,4 +21,9 @@ public class SalaryStandardDaoImpl implements SalaryStandardDao {
 		return this.sqlSession.selectOne("com.yc.dao.SalaryStandardDaoMapper.getSalaryStandardById", id);
 	}
 
+	@Override
+	public void addSalaryStandard(SalaryStandard ss) {
+		this.sqlSession.insert("com.yc.dao.SalaryStandardDaoMapper.addSalaryStandard", ss);
+	}
+
 }

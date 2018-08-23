@@ -2,7 +2,7 @@ package com.yc.bean;
 
 import java.io.Serializable;
 
-public class SalaryDetails implements Serializable {
+public class SalaryStandardDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer sdt_id ;// sdt_id" : 主键，自动增长列 
 	private String standard_id ;//standard_id" : 薪酬标准单编号  

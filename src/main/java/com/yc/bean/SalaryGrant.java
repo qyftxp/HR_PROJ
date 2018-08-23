@@ -1,6 +1,7 @@
 package com.yc.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class SalaryGrant implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -15,6 +16,17 @@ public class SalaryGrant implements Serializable{
 	private String checker ;//checker" : 复核人 
 	private String check_time ;//check_time" : 复核时间 
 	private String check_status ;// check_status" : 复核状态
+	
+	private List<SalaryGrantDetails> list; //
+	
+	
+	
+	public List<SalaryGrantDetails> getList() {
+		return list;
+	}
+	public void setList(List<SalaryGrantDetails> list) {
+		this.list = list;
+	}
 	public Integer getSgr_id() {
 		return sgr_id;
 	}
@@ -86,10 +98,8 @@ public class SalaryGrant implements Serializable{
 		return "SalaryGrant [sgr_id=" + sgr_id + ", salary_grant_id=" + salary_grant_id + ", department_name="
 				+ department_name + ", human_amount=" + human_amount + ", salary_sum=" + salary_sum
 				+ ", salary_paid_sum=" + salary_paid_sum + ", register=" + register + ", regist_time=" + regist_time
-				+ ", checker=" + checker + ", check_time=" + check_time + ", check_status=" + check_status + "]";
+				+ ", checker=" + checker + ", check_time=" + check_time + ", check_status=" + check_status + ", list="
+				+ list + "]";
 	}
-	
-	
-	
 	
 }
