@@ -24,10 +24,7 @@ function addTab(title, iconCls, closable, href, content) {
 			});
 		}
 	}
-	var str="录入笔试题";
-	if(title==str){
-		full();
-	}
+	
 	
 	if (href == null || href == "") {
 		//判断这个obj中的title是否已经在tab中存在
@@ -66,7 +63,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 1,
 					"text" : "档案登记",
 					"attributes" : {
-						"url" : "<iframe width='100%' height='100%' src='resadmin/resfood/rank.jsp' />"
+						"url" : "<iframe width='100%' height='100%' src='pages/personnel/archivesRegister.jsp' />"
 					}
 				},
 				{
@@ -129,7 +126,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 1,
 					"text" : "调动登记",
 					"attributes" : {
-						"url" : "<iframe width='100%' height='100%' src='resadmin/resfood/rank.jsp' />"
+						"url" : "<iframe width='100%' height='100%' src='pages/transfer/transferRegister.jsp' />"
 					}
 				},
 				{
@@ -180,7 +177,7 @@ function addTab(title, iconCls, closable, href, content) {
 					}
 				} ];
 		
-		/*招聘管理-》 面试管理 */
+		/*招聘管理-> 面试管理 */
 		var mianshiTreeData = [
 				{
 					"id" : 1,
@@ -287,7 +284,7 @@ function addTab(title, iconCls, closable, href, content) {
 		<div title="薪酬发放管理" style="overflow: auto; padding: 10px;">
 			<ul id="salaryPaidTree" class="easyui-tree"></ul>
 		</div>
-		<div title="调动管理树" style="overflow: auto; padding: 10px;">
+		<div title="调动管理" style="overflow: auto; padding: 10px;">
 			<ul id="transferTree" class="easyui-tree"></ul>
 		</div>
 		<div title="招聘管理" style="overflow: auto; padding: 10px;">

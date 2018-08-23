@@ -7,6 +7,11 @@ create table users (            --登录用户表
 	u_password 		varchar(60) not null)        --user_password" : 密码    
 
 	
+insert into users (u_name,u_true_name,user_position,u_password)
+values ( 'yc','a','人力资源专员','a');
+
+select * from users  where u_true_name = 'a' and u_password = 'a';
+	
 	--public_char" : 公共字段设置，包括薪酬设置，职称设置，国籍，民族，宗教信仰，政治面貌，教育年限，学历,专业，特长，爱好，培训项目，培训成绩，奖励项目，奖励等级 */                                                             */  
 create table public_char ( 
 	pbc_id int   auto_increment primary key,   --pbc_id" : 主键，自动增长列 

@@ -23,7 +23,7 @@ public class UseBizImpl implements UserBiz {
 
 	@Override
 	public User login(User user) {
-		List<User> list = (List<User>) userDao.findAll(user, "getUserByLogin");
+		List<User> list = (List<User>) userDao.findAll(user);
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		}

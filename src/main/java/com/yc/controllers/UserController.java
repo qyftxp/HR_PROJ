@@ -48,6 +48,7 @@ public class UserController {
 		if(! sRand.equals(zccode)){
 			request.setAttribute("errormsg", "验证码错误");
 		}else{
+			System.out.println(user);
 			user=userBiz.login(user);
 			if(user!=null){
 				session.setAttribute("user", user);
