@@ -3,12 +3,12 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yc.dao.SalaryStandardDaoMapper">
+<mapper namespace="com.yc.dao.SalaryDetailsDaoMapper">
 	
 	
 	<!-- 根据薪酬标准信息单号查询 -->
-	<select id="getSalaryStandardById" resultType="SalaryStandard" parameterType="String">
-		select * from salary_standard  where standard_id = #{id} 
+	<select id="getSalaryDetailsById" resultType="SalaryDetails" parameterType="String">
+		select * from salary_standard_details  where standard_id = #{id} 
 	</select>
 	
 </mapper>

@@ -1,7 +1,7 @@
 --这是薪酬部分 表的集合
 
 /* 创建新表 "salary_standard_details"。                                                            */
-/* "salary_standard_details" : 薪酬标准单详细信息                                                      */ 
+/* "salary_standard_details" : 薪酬标准单项目详细信息                                                      */ 
 create table salary_standard_details ( 
 	sdt_id int auto_increment primary key,    -- sdt_id" : 主键，自动增长列 
 	standard_id varchar(30) not null,         -- standard_id" : 薪酬标准单编号  
@@ -10,11 +10,8 @@ create table salary_standard_details (
 	item_name varchar(60) not null,			-- item_name" : 薪酬项目名称  
 	salary double(9,2) not null
 	)                    -- salary" : 薪酬金额
-	
-	
-
-
-
+insert into salary_standard_details(standard_id,standard_name,item_id,item_name,salary) 
+values("S001","JAVA高级工程师",1,"基本工资",50000.00);
 /* 创建新表 "salary_standard"。                                                                    */
 /* "salary_standard" : 薪酬标准基本信息表                                                              */
 create table salary_standard ( 
@@ -36,7 +33,7 @@ create table salary_standard (
 	
 insert into salary_standard(standard_id,standard_name,designer,register,checker,changer,regist_time,
 check_time,change_time,salary_sum,check_status,change_status,check_comment,remark) values(
-"S001","JAVA高级工程师","admin","bb","a","cc","2018826123512","2018827123512","无",500000.00,"正常",""
+"S001","JAVA高级工程师","admin","bb","a","cc","2018826123512","2018827123512","无",500000.00,"是","更改通过","无","asdas"
 );
 	
 	
