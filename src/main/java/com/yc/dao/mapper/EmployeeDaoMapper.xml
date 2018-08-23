@@ -25,6 +25,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="regist_time !=null and regist_time!=''">
 				and regist_time = #{regist_time}
 			</if>
+			
+			<!-- 档案状态 用于选择性查询 -->
+			<if test="human_file_status !=null and human_file_status!=''">
+				and human_file_status = #{human_file_status}
+			</if>
 		</where>
 	</sql>
 	
@@ -50,13 +55,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from human_file <include refid="conditionSql"/><include refid="orderSql"/><include refid="pageSql"/>
 	</select>
 	
+	
 	<insert id="addEmployee" parameterType="Employee" keyProperty="huf_id" useGeneratedKeys="true">
 		insert into human_file(human_id,department_name,human_name,human_address,human_postcode,human_major_kind_name,hunma_major_name,human_mobilephone,
 		human_bank,human_account,human_qq,human_email,human_hobby,human_speciality,human_sex,human_party,human_nationality,human_race,human_birthday,human_birthplace,
 		human_age,human_educated_degree,human_educated_years,human_educated_major,human_id_card,remark,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,
 		major_change_amount,file_chang_amount,human_histroy_id,human_family_membership,human_picture,check_status,register,checker,changer,regist_time,check_time,change_time,
-		lastly_change_time,delete_time,recovery_time,human_file_status) valuse()
+		lastly_change_time,delete_time,recovery_time,human_file_status) values(#{human_id},#{department_name},#{human_name},#{human_address},#{human_postcode},#{human_major_kind_name},
+		#{hunma_major_name},#{human_mobilephone},#{human_bank},#{human_account},#{human_qq},#{human_email},#{human_hobby},#{human_speciality},#{human_sex},#{human_party},#{human_nationality},
+		#{human_race},#{human_birthday},#{human_birthplace},#{human_age},#{human_educated_degree},#{human_educated_years},#{human_educated_major},#{human_id_card},#{remark},#{salary_standard_name},#{salary_sum},
+		#{demand_salaray_sum},#{paid_salary_sum},#{major_change_amount},#{file_chang_amount},#{human_histroy_id},#{human_family_membership},#{human_picture},#{check_status},#{register},#{checker},#{changer},
+		#{regist_time},#{check_time},#{change_time},#{lastly_change_time},#{delete_time},#{recovery_time},#{human_file_status})
 	</insert>
 	
+	<update id="updateEmployee" parameterType="Employee">
+		update human_file set human_id=#{human_id},department_name=#{department_name},human_name=#{human_name},human_address=#{human_address},human_postcode=#{human_postcode},human_major_kind_name=#{human_major_kind_name},hunma_major_name=#{hunma_major_name},human_mobilephone=#{human_mobilephone},human_bank=#{human_bank},human_account=#{human_account},
+		human_qq=#{human_qq},human_email=#{human_email},human_hobby=#{human_hobby},human_speciality=#{human_speciality},human_sex=#{human_sex},human_party=#{human_party},human_nationality=#{human_nationality},human_race=#{human_race},human_birthday=#{human_birthday},human_birthplace=#{human_birthplace},
+		human_age=#{human_age},human_educated_degree=#{human_educated_degree},human_educated_years=#{human_educated_years},human_educated_major=#{human_educated_major},human_id_card=#{human_id_card},remark=#{remark},salary_standard_name=#{salary_standard_name},salary_sum=#{salary_sum},demand_salaray_sum=#{demand_salaray_sum},paid_salary_sum=#{paid_salary_sum},
+		major_change_amount=#{major_change_amount},file_chang_amount=#{file_chang_amount},human_histroy_id=#{human_histroy_id},human_family_membership=#{human_family_membership},human_picture=#{human_picture},check_status=#{check_status},register=#{register},checker=#{checker},changer=#{changer},regist_time=#{regist_time},
+		check_time=#{check_time},change_time=#{change_time},lastly_change_time=#{lastly_change_time},delete_time=#{delete_time},recovery_time=#{recovery_time},human_file_status=#{human_file_status} where huf_id=#{huf_id}
+	</update>
+	
+	
+	<delete id="delEmployee">
+		delete from human_file where huf_id=#{huf_id}
+	</delete>
+	
+	<!-- 备份 用于恢复档案 -->
+	<insert id="addModifyEmployee" parameterType="ModifyEmployee" keyProperty="huf_id" useGeneratedKeys="true">
+		insert into human_file_dig(human_id,department_name,human_name,human_address,human_postcode,human_major_kind_name,hunma_major_name,human_mobilephone,
+		human_bank,human_account,human_qq,human_email,human_hobby,human_speciality,human_sex,human_party,human_nationality,human_race,human_birthday,human_birthplace,
+		human_age,human_educated_degree,human_educated_years,human_educated_major,human_id_card,remark,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,
+		major_change_amount,file_chang_amount,human_histroy_id,human_family_membership,human_picture,check_status,register,checker,changer,regist_time,check_time,change_time,
+		lastly_change_time,delete_time,recovery_time,human_file_status) values(#{human_id},#{department_name},#{human_name},#{human_address},#{human_postcode},#{human_major_kind_name},
+		#{hunma_major_name},#{human_mobilephone},#{human_bank},#{human_account},#{human_qq},#{human_email},#{human_hobby},#{human_speciality},#{human_sex},#{human_party},#{human_nationality},
+		#{human_race},#{human_birthday},#{human_birthplace},#{human_age},#{human_educated_degree},#{human_educated_years},#{human_educated_major},#{human_id_card},#{remark},#{salary_standard_name},#{salary_sum},
+		#{demand_salaray_sum},#{paid_salary_sum},#{major_change_amount},#{file_chang_amount},#{human_histroy_id},#{human_family_membership},#{human_picture},#{check_status},#{register},#{checker},#{changer},
+		#{regist_time},#{check_time},#{change_time},#{lastly_change_time},#{delete_time},#{recovery_time},#{human_file_status})
+	</insert>
 	
 </mapper>
