@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 	
 	
 	@Override
-	public List<User> findAll(User user, String sqlId) {
+	public List<User> findAll(User user) {
 		return this.sqlSession.selectList("com.yc.dao.UserDaoMapper.getUserByLogin",user);
 	}
 

@@ -14,7 +14,7 @@ create table users (            -- 登录用户表
 	user_position 	varchar(20)  not null,		-- user_position   职位   根据职位名称有不同的权限
 	u_password 		varchar(60) not null)        -- user_password" : 密码    
 
-
+select * from users;
 
 insert into users(u_name,u_true_name,user_position,u_password) values('better_admin','zhangsan','总管理员','123456')
 
@@ -74,6 +74,22 @@ create table department(
 	department_id  int not null,   -- 部门编号
 	department_name varchar(20) not null-- 部门名称
 )
+
+delete from department;
+
+insert into department(department_id,department_name) values(1,'财务部');
+insert into department(department_id,department_name) values(2,'行政后勤部');
+insert into department(department_id,department_name) values(3,'人事部');
+insert into department(department_id,department_name) values(4,'企划部');
+insert into department(department_id,department_name) values(5,'技术部');
+insert into department(department_id,department_name) values(6,'销售部');
+insert into department(department_id,department_name) values(7,'项目工程部');
+insert into department(department_id,department_name) values(8,'生产研发部');
+insert into department(department_id,department_name) values(9,'采购部');
+insert into department(department_id,department_name) values(10,'客户服务部');
+
+
+
 
 
 -- config_major_kind" : 职位分类设置   
