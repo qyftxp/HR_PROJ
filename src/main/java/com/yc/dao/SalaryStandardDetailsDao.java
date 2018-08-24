@@ -12,4 +12,6 @@ public interface SalaryStandardDetailsDao {
 	public List<SalaryStandardDetails> findByStandard_id(String id);
 	
 	public void addSalaryStandardDetailsList(List<SalaryStandardDetails> list);
+
+	public void updateSalaryStandardDetailsList(List<SalaryStandardDetails> list);
 }

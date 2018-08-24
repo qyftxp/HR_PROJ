@@ -3,8 +3,7 @@ package com.yc;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
-import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 
@@ -15,6 +14,7 @@ import org.springframework.context.annotation.Bean;
  *
  */
 
+@EnableTransactionManagement
 @SpringBootApplication
 @MapperScan(basePackages={"com.yc.dao.mapper"})
 public class HelloApplication {

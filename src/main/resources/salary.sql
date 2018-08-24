@@ -22,20 +22,21 @@ create table salary_standard (
 	register varchar(60) not null,				-- register" : 登记人 
 	checker varchar(60) not null,				-- checker" : 复核人
 	changer varchar(60) not null,				-- changer" : 变更人
-	regist_time varchar(20) not null,			-- regist_time" : 登记时间
-	check_time varchar(20) not null,			-- check_time" : 复核时间 
-	change_time varchar(20) not null,			-- check_time" : 变更时间 
+	regist_time datetime  not null,			-- regist_time" : 登记时间
+	check_time datetime  not null,			-- check_time" : 复核时间 
+	change_time datetime  ,			-- check_time" : 变更时间 
 	salary_sum double(10,2) not null,			 -- salary_sum" : 薪酬总额 
-	check_status varchar(9) not null,			-- check_status" : 是否经过复核 
+	check_status varchar(9) not null,			-- check_status" : 登记复核 
 	change_status varchar(9) not null,			-- change_status" : 更改状态 
-	check_comment text not null,				-- check_comment" : 复核意见
-	remark text not null)  						-- remark" : 备注 
-	
+	check_comment text ,				-- check_comment" : 复核意见
+	remark text )  						-- remark" : 备注 
+select * from salary_standard;
+drop table salary_standard;
 insert into salary_standard(standard_id,standard_name,designer,register,checker,changer,regist_time,
 check_time,change_time,salary_sum,check_status,change_status,check_comment,remark) values(
-"S001","JAVA高级工程师","admin","bb","a","cc","2018826123512","2018827123512","无",500000.00,"是","更改通过","无","asdas"
+"S001","JAVA高级工程师","admin","bb","a","cc","2018-8-26 12:35:12","2018-8-27 12:35:12",null,500000.00,"是","更改通过","无","asdas"
 );
-	
+update 	salary_standard set standard_id="S001" where ssd_id=1;
 	
 
 
@@ -49,11 +50,12 @@ create table salary_grant(
 	salary_sum double(10,2) not null,		-- salary_sum" : 薪酬总额 
 	salary_paid_sum double(10,2) not null,         -- salary_paid_sum" : 实发总金额
 	register varchar(60) not null,		 -- register" : 登记人 
-	regist_time varchar(20) not null,		-- regist_time" : 登记时间
+	regist_time datetime not null,		-- regist_time" : 登记时间
 	checker varchar(60) not null,			-- checker" : 复核人 
-	check_time varchar(20) not null,			-- check_time" : 复核时间 
+	check_time datetime not null,			-- check_time" : 复核时间 
 	check_status varchar(20) not null)  		-- check_status" : 复核状态
-	
+
+drop table salary_grant;
 	
 /* 创建新表 "salary_grant_details"。                                                               */
 /* "salary_grant_details" : 薪酬发放详细信息                                                          */

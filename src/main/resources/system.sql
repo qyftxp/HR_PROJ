@@ -2,9 +2,9 @@
 create table users (            --登录用户表
 	u_id 			int   auto_increment primary key,    --user_id : 主键，自动增长列        
 	u_name 			varchar(60) not null,			--user_name" : 用户名 
-	u_true_name 	varchar(60) not null		--user_true_name" : 真实姓名 
-	user_position 	varchar(20)  not null,		--user_position   职位   根据职位名称有不同的权限
-	u_password 		varchar(60) not null)        --user_password" : 密码    
+	u_true_name 	varchar(60) not null		-- user_true_name" : 真实姓名 
+	user_position 	varchar(20)  not null,		-- user_position   职位   根据职位名称有不同的权限
+	u_password 		varchar(60) not null)        -- user_password" : 密码    
 
 	
 insert into users (u_name,u_true_name,user_position,u_password)
