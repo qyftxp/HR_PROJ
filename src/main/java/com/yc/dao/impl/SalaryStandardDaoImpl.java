@@ -35,7 +35,7 @@ public class SalaryStandardDaoImpl implements SalaryStandardDao {
 	 */
 	@Override
 	public List<SalaryStandard> find(Map<String,String> map){
-		return this.sqlSession.selectOne("com.yc.dao.SalaryStandardDaoMapper.getSalaryStandardByMap", map);
+		return this.sqlSession.selectList("com.yc.dao.SalaryStandardDaoMapper.getSalaryStandardByMap", map);
 	}
 	/**
 	 * 根据传入对象修改

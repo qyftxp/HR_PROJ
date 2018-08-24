@@ -32,7 +32,7 @@ public class Major_changeController {
 	}
 	
 	
-	public JsoModel find()
+	/*public JsoModel find()*/
 	
 	
 }

@@ -13,7 +13,11 @@ create table salary_standard_details (
 insert into salary_standard_details(standard_id,standard_name,item_id,item_name,salary) 
 values("S001","JAVA高级工程师",1,"基本工资",50000.00);
 /* 创建新表 "salary_standard"。                                                                    */
-/* "salary_standard" : 薪酬标准基本信息表                                                              */
+/* "salary_standard" : 薪酬标准基本信息表      
+ * 
+ * 
+                                                         */
+drop table salary_standard;
 create table salary_standard ( 
 	ssd_id int auto_increment primary key,      -- ssd_id" : 主键，自动增长列
 	standard_id varchar(30) not null,			-- standard_id" : 薪酬标准单编号    
