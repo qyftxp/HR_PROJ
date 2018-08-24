@@ -24,6 +24,9 @@
 										align : 'center'
 									},
 									{
+										
+									},
+									{
 										field : 'userid',
 										title : '部门',
 										width : 70,

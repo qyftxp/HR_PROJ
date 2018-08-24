@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,15 +16,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.bean.Employee;
+import com.yc.biz.PublicCharBiz;
 import com.yc.dao.EmployeeDao;
+import com.yc.dao.PublicCharDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class EmployeeTest {
 	
+	@Resource(name="publicCharBizImpl")
+	private PublicCharBiz publicCharBizImpl;
 	
 	@Resource(name="employeeDaoImpl")
 	private EmployeeDao employeeDaoImpl;
+	
+	@Resource(name="publicCharDaoImpl")
+	private PublicCharDao publicCharDaoImpl;
+	
 	@Test
     public void findOne() throws Exception {
 		
@@ -107,6 +117,7 @@ public class EmployeeTest {
     }
 	
 	@Test
+
     public void testfindStatus(){
 		
 		Map map = new HashMap();
@@ -116,5 +127,15 @@ public class EmployeeTest {
 		System.out.println(list.get(0).getHuf_id());
 		System.out.println(list);
     }
+
+    public void findChar() throws Exception {
+		
+		List list = publicCharBizImpl.findChar("爱好");
+		
+		System.out.println(list);
+    }
+	
+
+
 
 }

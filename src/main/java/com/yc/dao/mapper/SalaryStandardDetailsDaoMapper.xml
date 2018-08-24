@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.yc.dao.SalaryStandardDetailsDaoMapper">
 
-
+	
 	<!-- 根据薪酬标准信息单号查询 -->
 	<select id="getSalaryDetailsById" resultType="SalaryStandardDetails"
 		parameterType="String">

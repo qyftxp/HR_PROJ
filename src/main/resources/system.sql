@@ -18,6 +18,7 @@ create table public_char (
 	attribute_kind varchar(60) ,  -- attribute_kind" : 属性的种类
 	attribute_name varchar(60) )  -- attribute_name" : 属性的名称  
 
+	select * from public_char where attribute_kind='爱好'
 
 insert into public_char(attribute_kind,attribute_name) values('国籍','中国');
 insert into public_char(attribute_kind,attribute_name) values('国籍','美国');
@@ -57,6 +58,8 @@ insert into public_char(attribute_kind,attribute_name) values('薪酬设置','�
 insert into public_char(attribute_kind,attribute_name) values('薪酬设置','基本工资');
 insert into public_char(attribute_kind,attribute_name) values('薪酬设置','年终奖');
 insert into public_char(attribute_kind,attribute_name) values('薪酬设置','误餐补助');
+insert into public_char(attribute_kind,attribute_name) values('性别','男');
+insert into public_char(attribute_kind,attribute_name) values('性别','女');
 
 
 

@@ -16,7 +16,9 @@ create table users (            -- 登录用户表
 
 select * from users;
 
-insert into users(u_name,u_true_name,user_position,u_password) values('better_admin','zhangsan','总管理员','123456')
+
+
+insert into users(u_name,u_true_name,user_position,u_password) values('better_admin','a','总管理员','a')
 
 
 

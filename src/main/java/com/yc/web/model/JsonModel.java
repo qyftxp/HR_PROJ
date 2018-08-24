@@ -3,6 +3,8 @@ package com.yc.web.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.yc.bean.Major;
+
 public class JsonModel<T> implements Serializable {
 
 	
@@ -69,6 +71,5 @@ public class JsonModel<T> implements Serializable {
 	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
-	
 	
 }

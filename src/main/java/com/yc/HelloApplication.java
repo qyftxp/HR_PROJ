@@ -3,7 +3,11 @@ package com.yc;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.yc.listeners.InitListener;
 
 
 
@@ -19,12 +23,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages={"com.yc.dao.mapper"})
 public class HelloApplication {
 	
-	/*@Bean
+		@Bean
 	 public ServletListenerRegistrationBean servletListenerRegistrationBean(){
 	   ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
 	   servletListenerRegistrationBean.setListener(new InitListener());
 	   return servletListenerRegistrationBean;
-	 }*/
+	 }
 
 	public static void main(String[] args) {
 		SpringApplication.run(HelloApplication.class, args);

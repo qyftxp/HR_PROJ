@@ -26,11 +26,14 @@ public class EmployeeBizImpl implements EmployeeBiz {
 		List<Employee> list = employeeDaoImpl.findAllBysql(map);
 		return list;
 	}
-
+	
+	/**
+	 * 档案登记
+	 * */
 	@Override
 	public boolean addEmployee(Employee employee) {
 		
-		int r = employeeDaoImpl.addEmployee(employee);
+		int r = employeeDaoImpl.addEmployee(employee);//状态为待审核
 		if(r==1){
 			return true;
 		}else{
