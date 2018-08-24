@@ -17,10 +17,10 @@ import com.yc.dao.SalaryGrantDetailsDao;
 @SpringBootTest
 public class SalaryGrantDetailsTest {
 	@Resource(name="salaryGrantDetailsDaoImpl")
-	private SalaryGrantDetailsDao salaryGrantDetailsDaoImpl;
+	private SalaryGrantDetailsDao salaryGrantDetailsDao;
 	
 	@Test//根据根据薪酬标准ID查询薪酬标准项目信息  
 	public void test1(){
-		System.out.println(salaryGrantDetailsDaoImpl.findByid("S001"));
+		System.out.println(salaryGrantDetailsDao.findByid("S001"));
 	}
 }

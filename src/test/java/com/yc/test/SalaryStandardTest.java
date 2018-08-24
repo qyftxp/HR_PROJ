@@ -23,7 +23,7 @@ import com.yc.dao.UserDao;
 @SpringBootTest
 public class SalaryStandardTest {
 	@Resource(name="salaryStandardDaoImpl")
-	private SalaryStandardDao salaryDaoImpl;
+	private SalaryStandardDao salaryStandardDaoImpl;
 	
 	@Resource(name="userDaoImpl")
 	private UserDao userDaoImpl ;
@@ -33,7 +33,7 @@ public class SalaryStandardTest {
 	
 	@Test
 	public void test1(){
-		System.out.println(salaryDaoImpl.findByStandard_id("S001"));
+		System.out.println(salaryStandardDaoImpl.findByStandard_id("S001"));
 	}
 	
 	@Test

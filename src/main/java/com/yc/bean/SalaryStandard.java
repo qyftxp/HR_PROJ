@@ -1,6 +1,7 @@
 package com.yc.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class SalaryStandard implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -19,7 +20,14 @@ public class SalaryStandard implements Serializable{
 	private	String	change_status ;// change_status" : 更改状态 
 	private	String	check_comment ;//check_comment" : 复核意见
 	private	String	remark ;//- check_status" : 复核状态
+	private List<SalaryStandardDetails>  list;  //薪酬标准的具体项目
 	
+	public List<SalaryStandardDetails> getList() {
+		return list;
+	}
+	public void setList(List<SalaryStandardDetails> list) {
+		this.list = list;
+	}
 	public Integer getSsd_id() {
 		return ssd_id;
 	}
@@ -116,6 +124,7 @@ public class SalaryStandard implements Serializable{
 				+ ", designer=" + designer + ", register=" + register + ", checker=" + checker + ", changer=" + changer
 				+ ", regist_time=" + regist_time + ", check_time=" + check_time + ", change_time=" + change_time
 				+ ", salary_sum=" + salary_sum + ", check_status=" + check_status + ", change_status=" + change_status
-				+ ", check_comment=" + check_comment + ", remark=" + remark + "]";
+				+ ", check_comment=" + check_comment + ", remark=" + remark + ", list=" + list + "]";
 	}
+	
 }

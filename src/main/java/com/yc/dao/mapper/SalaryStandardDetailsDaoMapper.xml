@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yc.dao.SalaryStandardDetailsDaoMapper">
+	
+	
+	<!-- 根据薪酬标准信息单号查询 -->
+	<select id="getSalaryDetailsById" resultType="SalaryStandardDetails" parameterType="String">
+		select * from salary_standard_details  where standard_id = #{id} 
+	</select>
+	
+	<!-- 批量插入 -->
+	<insert id="addSalaryStandardDetailsList" parameterType="ArrayList" >
+        insert into salary_standard_details 
+        (standard_id,standard_name,item_id,item_name,salary)
+      	values
+        <foreach collection="list" item="item" index="index" separator=",">
+                (#{item.standard_id},#{item.standard_name}, #{item.item_id},
+                #{item.item_name},#{item.salary})
+        </foreach>
+    </insert>
+    <!--  -->
+	
+</mapper>

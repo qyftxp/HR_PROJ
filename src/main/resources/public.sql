@@ -74,7 +74,7 @@ create table department(
 	department_id  int not null,   -- 部门编号
 	department_name varchar(20) not null-- 部门名称
 )
-
+select * from department;
 delete from department;
 
 insert into department(department_id,department_name) values(1,'财务部');
