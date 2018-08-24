@@ -10,6 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllSalaryGrant" resultType="SalaryGrant" >
 		select * from salary_grant  
 	</select>
+	
+	
+	
 	<!-- 插入数据 -->
 	<insert id="addSalaryGrant" parameterType="SalaryGrant">
 		insert into salary_grant(

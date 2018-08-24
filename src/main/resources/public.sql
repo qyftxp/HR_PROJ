@@ -262,9 +262,9 @@ create table salary_standard (
 	register varchar(60) not null,				-- register" : 登记人 
 	checker varchar(60) not null,				-- checker" : 复核人
 	changer varchar(60) not null,				-- changer" : 变更人
-	regist_time varchar(20) not null,			-- regist_time" : 登记时间
-	check_time varchar(20) not null,			-- check_time" : 复核时间 
-	change_time varchar(20) not null,			-- check_time" : 复核时间 
+	regist_time datetime not null,			-- regist_time" : 登记时间
+	check_time datetime ,			-- check_time" : 复核时间 
+	change_time datetime not null,			-- check_time" : 复核时间 
 	salary_sum double(10,2) not null,			 -- salary_sum" : 薪酬总额 
 	check_status varchar(9) not null,			-- check_status" : 是否经过复核 
 	change_status varchar(9) not null,			-- change_status" : 更改状态 
@@ -281,7 +281,7 @@ create table salary_grant(
 	salary_sum double(10,2) not null,		-- salary_sum" : 薪酬总额 
 	salary_paid_sum double(10,2) not null,         -- salary_paid_sum" : 实发总金额
 	register varchar(60) not null,		 -- register" : 登记人 
-	regist_time varchar(20) not null,		-- regist_time" : 登记时间
+	regist_time datetime not null,		-- regist_time" : 登记时间
 	checker varchar(60) not null,			-- checker" : 复核人 
 	check_time varchar(20) not null,			-- check_time" : 复核时间 
 	check_status varchar(20) not null)  		-- check_status" : 复核状态
@@ -390,8 +390,6 @@ create table engage_exam (
 	regist_time date not null,			-- 登记时间
 	limite_time int not null				-- 答题限时
 )  
-
-
 
 -- 考试答题登记表                                                                  
 create table engage_answer ( 

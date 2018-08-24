@@ -21,9 +21,19 @@ public class SalaryStandardDetailsDaoImpl implements SalaryStandardDetailsDao {
 	public List<SalaryStandardDetails> findByStandard_id(String id) {
 		return this.sqlSession.selectList("com.yc.dao.SalaryStandardDetailsDaoMapper.getSalaryDetailsById", id);
 	}
+	/**
+	 * 添加多条
+	 */
 	@Override
 	public void addSalaryStandardDetailsList(List<SalaryStandardDetails> list) {
 		this.sqlSession.insert("com.yc.dao.SalaryStandardDetailsDaoMapper.addSalaryStandardDetailsList", list);
+	}
+	/**
+	 * 修改多条
+	 */
+	@Override
+	public void updateSalaryStandardDetailsList(List<SalaryStandardDetails> list) {
+		this.sqlSession.insert("com.yc.dao.SalaryStandardDetailsDaoMapper.updateSalaryStandardDetailsList", list);
 	}
 
 }

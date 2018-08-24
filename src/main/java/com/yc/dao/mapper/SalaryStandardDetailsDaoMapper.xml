@@ -4,23 +4,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yc.dao.SalaryStandardDetailsDaoMapper">
-	
-	
+
+
 	<!-- 根据薪酬标准信息单号查询 -->
-	<select id="getSalaryDetailsById" resultType="SalaryStandardDetails" parameterType="String">
-		select * from salary_standard_details  where standard_id = #{id} 
+	<select id="getSalaryDetailsById" resultType="SalaryStandardDetails"
+		parameterType="String">
+		select * from salary_standard_details where standard_id
+		= #{id}
 	</select>
-	
+
 	<!-- 批量插入 -->
-	<insert id="addSalaryStandardDetailsList" parameterType="ArrayList" >
-        insert into salary_standard_details 
-        (standard_id,standard_name,item_id,item_name,salary)
-      	values
-        <foreach collection="list" item="item" index="index" separator=",">
-                (#{item.standard_id},#{item.standard_name}, #{item.item_id},
-                #{item.item_name},#{item.salary})
-        </foreach>
-    </insert>
-    <!--  -->
-	
+	<insert id="addSalaryStandardDetailsList" parameterType="ArrayList">
+		insert into salary_standard_details
+		(standard_id,standard_name,item_id,item_name,salary)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.standard_id},#{item.standard_name}, #{item.item_id},
+			#{item.item_name},#{item.salary})
+		</foreach>
+	</insert>
+	<!-- 批量修改 -->
+	<update id="updateSalaryStandardDetailsList" parameterType="java.util.List">
+		update salary_standard_details
+		<set>
+			<if test="standard_id != null">standard_id = #{item.standard_id},</if>
+			<if test="standard_name != null">standard_name = #{item.standard_name},</if>
+			<if test="item_id != null">item_id = #{item.item_id},</if>
+			<if test="item_name != null">item_name = #{item.item_name},</if>
+			<if test="salary != null">salary = #{item.salary},</if>
+		</set>
+		where id in
+		<foreach collection="list" item="item" open="(" close=")"
+			separator=",">
+			#{item.id}
+		</foreach>
+	</update>
 </mapper>
