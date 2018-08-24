@@ -44,7 +44,7 @@ public class EmployeeTest {
 		el.setHuman_address("长沙市");
 		el.setHuman_postcode("425300");
 		el.setHuman_major_kind_name("工程师");
-		el.setHunma_major_name("看看");
+		el.setHuman_major_name("看看");
 		el.setHuman_mobilephone("131412");
 		el.setHuman_bank("建设银行");
 		el.setHuman_account("4332225668855");
@@ -104,6 +104,17 @@ public class EmployeeTest {
 		
 		System.out.println(r+"删除成功");
 		
+    }
+	
+	@Test
+    public void testfindStatus(){
+		
+		Map map = new HashMap();
+		map.put("department_name", "人事部");
+		List<Employee> list = employeeDaoImpl.findAllByStatus(map);
+		
+		System.out.println(list.get(0).getHuf_id());
+		System.out.println(list);
     }
 
 }

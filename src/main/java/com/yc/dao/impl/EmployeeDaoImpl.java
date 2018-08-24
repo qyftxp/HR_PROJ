@@ -65,4 +65,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return sqlSession.update("com.yc.dao.EmployeeDaoMapper.updateEmployee",employee);
 	}
 
+	@Override
+	public List<Employee> findAllByStatus(Map map) {
+		 List<Employee> list =sqlSession.selectList("com.yc.dao.EmployeeDaoMapper.findStatusEmployee",map);
+		 return list;
+	}
+
 }

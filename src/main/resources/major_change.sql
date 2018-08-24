@@ -1,6 +1,10 @@
 --这是部门调度表
 /* 创建新表 "major_change"。                                                                       */
-/* "major_change" : 职位调动表                                                                     */
+/* "major_change" : 职位调动表             
+ * 
+ */
+ 
+select * from  major_change;                                                                                                                */
 create table major_change ( 
 	mch_id int auto_increment primary key,  -- mch_id" : 主键，自动增长列  
 	department_name varchar(20) not null  , -- 部门名称

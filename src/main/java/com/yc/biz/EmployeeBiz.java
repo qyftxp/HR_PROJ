@@ -16,4 +16,6 @@ public interface EmployeeBiz {
 	
 	public boolean updateEmployee(Employee employee,ModifyEmployee memployee);
 	
+	public List<Employee> findAllByStatus(Map map);
+	
 }

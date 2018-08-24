@@ -66,5 +66,12 @@ public class EmployeeBizImpl implements EmployeeBiz {
 		}
 		
 	}
+	
+	//查状态为正常的人员信息
+	@Override
+	public List<Employee> findAllByStatus(Map map) {
+		List<Employee> list = employeeDaoImpl.findAllByStatus(map);
+		return list;
+	}
 
 }
