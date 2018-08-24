@@ -6,45 +6,69 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yc.bean.Employee;
 import com.yc.bean.Major_change;
 import com.yc.biz.Major_changeBiz;
 import com.yc.dao.EmployeeDao;
 import com.yc.dao.Major_ChangeDao;
+import com.yc.dao.SalaryStandardDao;
 
 @Service
 public class Major_changeBizImpl implements Major_changeBiz {
-	
-	@Resource(name="major_ChangeDaoImpl")
+
+	@Resource(name = "major_ChangeDaoImpl")
 	private Major_ChangeDao major_ChangeDao;
-	@Resource(name="")
 	
-	
+
+	// 调动登记
 	@Override
-	public boolean addMajor_change(Major_change major_change, String human_file_status) {
-		// TODO Auto-generated method stub
-		return false;
+	@Transactional
+	public boolean transferRegister(Major_change major_change, String human_file_status) {
+
+		int r = major_ChangeDao.addMajor_change(major_change);
+
+		int status = major_ChangeDao.updateEmployee(human_file_status);
+
+		if (r == 1 && status == 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
+	
+	//查询所有的调动记录
 	@Override
 	public List<Major_change> findAllBysql(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Major_change>   allMajor_change=major_ChangeDao.findAllBysql(map);
+		return allMajor_change;
 	}
 
 	@Override
 	public boolean deleteMajor_change(int mch_id) {
-		// TODO Auto-generated method stub
-		return false;
+		int r=major_ChangeDao.deleteMajor_change(mch_id);
+		if(r==1){
+			return true;
+		}else {
+			return false;
+		}
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean updateMajor_change(Major_change major_change, Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		int r=major_ChangeDao.updateMajor_change(major_change);
+		
+		int personal=major_ChangeDao.updateEmployee(employee);
+		
+		if(r==1 && personal==1){
+			return true;
+		}else{
+			return false;
+		}
 	}
-
-	
 
 }

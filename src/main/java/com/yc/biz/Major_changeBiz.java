@@ -8,7 +8,7 @@ import com.yc.bean.Major_change;
 
 public interface Major_changeBiz {
 	
-	public boolean addMajor_change(Major_change major_change,String human_file_status);
+	public boolean transferRegister(Major_change major_change,String human_file_status);
 	
 	public List<Major_change> findAllBysql(Map map);
 	
