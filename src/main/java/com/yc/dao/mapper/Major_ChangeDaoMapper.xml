@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yc.dao.Major_ChangeDaoMapper">
+	
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<!-- <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" /> -->
+	
+	<sql id="conditionSql">
+		<where>
+			
+			<if test="human_name !=null and human_name!=''">
+				and human_major_kind_name=#{human_major_kind_name}
+			</if>
+			
+			
+			<if test="check_time !=null and check_time!=''">
+				and check_time=#{check_time}
+			</if>
+			
+			<if test="regist_time !=null and regist_time!=''">
+				and regist_time = #{regist_time}
+			</if>
+			
+			<if test="human_id !=null and human_id!=''">
+				and human_id = #{human_id}
+			</if>
+			
+			<!-- 档案状态 用于选择性查询 -->
+			<if test="human_file_status !=null and human_file_status!=''">
+				and human_file_status = #{human_file_status}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="orderSql">
+		<if test="orderby!=null and orderby!=''">
+			order by #{orderby}
+			<if test="orderway!=null and orderway!=''">
+				#{orderway}
+			</if>
+		</if>
+		
+	</sql>
+	
+	<!-- 分页条件的拼接 -->
+	<sql id="pageSql">
+		<if test="start!=null">
+			limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<!-- 根据条件查询 -->
+	<select id="findMajor_change" resultType="Major_change" parameterType="Map">
+		select * from major_change <include refid="conditionSql"/><include refid="orderSql"/><include refid="pageSql"/>
+	</select>
+	
+	<!-- 插入调动登记信息 -->
+	<insert id="addMajor_change_register" parameterType="Major_change" keyProperty="mch_id" useGeneratedKeys="true">
+		insert into major_change(human_id,department_name,human_name,major_kind_name,major_name,
+		salary_standard_name,new_department_name,new_major_kind_name,new_major_name,new_salary_standard_name,
+		register,regist_time,change_reason,salary_sum,new_salary_sum) values(#{human_id},#{department_name},#{human_name},#{major_kind_name},
+		#{major_name},#{salary_standard_name},#{new_department_name},#{new_major_kind_name},
+		#{new_major_name},#{new_salary_standard_name},#{register},#{regist_time},#{change_reason},
+		#{salary_sum},#{new_salary_sum})
+	</insert>
+	
+	
+	
+	
+	
+	<!-- 复核调动信息 -->
+	<update id="updateMajor_change" parameterType="Major_change">
+		update major_change set checker=#{checker},check_time=#{check_time},check_reason=#{check_reason},
+		check_status=#{check_status} where mch_id=#{mch_id}
+	</update>
+	
+	
+	<!-- 调动登记时的人员信息状态修改 -->
+	<update id="updateStatus" parameterType="Employee">
+		update human_file set human_file_status=#{human_file_status} where huf_id=#{huf_id}
+	</update>
+	
+	<!-- 更新 人员调动后的信息 -->
+	<update id="updateEmployee" parameterType="Employee">
+		update human_file set department_name=#{new_department_name},human_major_kind_name=#{new_major_kind_name},
+		human_major_name=#{new_major_name},salary_standard_name=#{new_salary_standard_name},salary_sum=#{new_salary_sum},
+	    human_file_status=#{human_file_status} where huf_id=#{huf_id}
+	</update>
+	
+	<!-- 当调动复核失败时,删除调动备份数据 -->
+	<delete id="delMajor_change">
+		delete from major_change where mch_id=#{mch_id}
+	</delete>
+	
+	
+	
+</mapper>

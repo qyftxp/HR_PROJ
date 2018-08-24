@@ -8,12 +8,12 @@ select * from  major_change;                                                    
 create table major_change ( 
 	mch_id int auto_increment primary key,  -- mch_id" : 主键，自动增长列  
 	department_name varchar(20) not null  , -- 部门名称
-	major_kind_id varchar(5) not null,  -- major_kind_id" : 职位分类编号
+	
 	major_kind_name varchar(60) not null,-- major_kind_name" : 职位分类名称
-	major_id varchar(5) not null,-- major_id" : 职位编号
+	
 	major_name varchar(60) not null,-- major_name" : 职位名称 
 	new_department_name varchar(20) not null  , -- 新部门名称
-	new_major_kind_id varchar(5) not null,  -- new_major_kind_id" : 新职位分类编号
+	
 	new_major_kind_name varchar(60) not null,-- new_major_kind_name" : 新职位分类名称
 	new_major_id varchar(5) not null,  -- new_major_id" : 新职位编号
 	new_major_name varchar(60) not null,-- new_major_name" : 新职位名称

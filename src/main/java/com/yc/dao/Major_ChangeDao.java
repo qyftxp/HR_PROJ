@@ -12,8 +12,14 @@ public interface Major_ChangeDao {
 	
 	public List<Major_change> findAllBysql(Map map);
 	
-	public int updateMajor_change(Major_change major_change);
 	
 	public int updateEmployee(Employee employee);
 	
+	public int updateEmployee(String human_file_status);
+	
+	public int deleteMajor_change(int mch_id);
+	
+	public int updateMajor_change(Major_change major_change);
+	
 }
+

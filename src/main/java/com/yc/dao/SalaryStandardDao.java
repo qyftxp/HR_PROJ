@@ -9,6 +9,8 @@ public interface SalaryStandardDao {
 	 */
 	public SalaryStandard findByStandard_id(String id);
 	
+	
+	
 	public void addSalaryStandard(SalaryStandard ss);
 	
 }

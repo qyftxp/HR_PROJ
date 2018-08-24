@@ -126,7 +126,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 1,
 					"text" : "调动登记",
 					"attributes" : {
-						"url" : "<iframe width='100%' height='100%' src='pages/transfer/transferRegister.jsp' />"
+						"url" : "<iframe width='100%' height='100%' src='pages/transfer/find.jsp' />"
 					}
 				},
 				{
