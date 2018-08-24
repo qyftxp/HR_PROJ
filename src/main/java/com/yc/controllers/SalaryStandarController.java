@@ -19,21 +19,25 @@ public class SalaryStandarController {
 	@Resource(name="salaryStandarBizImpl")
 	private SalaryStandarBiz salaryStandarBiz;
 	
-	@RequestMapping("/salarystandarfind.action")
-	public JsonModel find(@RequestParam("standard_name") String standard_name,
-			@RequestParam("startTime") String startTime,
-			@RequestParam("endTime") String endTime){
+	@RequestMapping("/salarystandardfind.action")
+	public JsonModel find(SalaryStandard ss){
 		System.out.println("进入控制器");
 		Map<String,String> map=new HashMap<String,String>();
-		map.put("startTime", startTime);
-		map.put("endTime", endTime);
-		map.put("standard_name", standard_name);
-		System.out.println(endTime+""+startTime+""+standard_name);
-//		List<SalaryStandard> list=salaryStandarBiz.find(map);
-		
+		if(ss.getStartTime()!=null&&ss.getStartTime().equals("")){
+			map.put("startTime",ss.getStartTime());
+		}
+		if(ss.getEndTime()!=null&&ss.getEndTime().equals("")){
+			map.put("endTime", ss.getEndTime());
+		}
+		if(ss.getStandard_name()!=null&&ss.getStandard_name().equals("")){
+			map.put("standard_name", "%"+ss.getStandard_name()+"%");
+		}
+		System.out.println(ss.getStartTime()+""+ss.getEndTime()+""+ss.getStandard_name());
+		List<SalaryStandard> list=salaryStandarBiz.find(map);
+		System.out.println(list);
 		JsonModel jm=new JsonModel();
-//		jm.setCode(1);
-//		jm.setObj(list);
+		jm.setCode(1);
+		jm.setObj(list);
 		return  jm;
 	}
 	

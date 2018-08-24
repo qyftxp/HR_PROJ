@@ -37,7 +37,7 @@ check_time,change_time,salary_sum,check_status,change_status,check_comment,remar
 "S001","JAVA高级工程师","admin","bb","a","cc","2018-8-26 12:35:12","2018-8-27 12:35:12",null,500000.00,"是","更改通过","无","asdas"
 );
 update 	salary_standard set standard_id="S001" where ssd_id=1;
-	
+select * from salary_standard    WHERE  standard_name like "%JAVA%"  and regist_time  >= "2018-8-10"   and regist_time <=  "2018-8-31"
 
 
 	/* 创建新表 "salary_grant"。                                                                       */
