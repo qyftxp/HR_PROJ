@@ -22,6 +22,21 @@ public class SalaryStandard implements Serializable{
 	private	String	remark ;//- check_status" : 复核状态
 	private List<SalaryStandardDetails>  list;  //薪酬标准的具体项目
 	
+	private String startTime ;
+	private String endTime;
+	
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
 	public List<SalaryStandardDetails> getList() {
 		return list;
 	}
