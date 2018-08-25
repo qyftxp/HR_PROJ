@@ -2,7 +2,7 @@ package com.yc.bean;
 
 import java.io.Serializable;
 
-public class Engage_answer_details implements Serializable {
+public class EngageAnswerDetails implements Serializable {
 	private static final long serialVersionUID = 8868524040946664541L;
 	private Integer and_id;
 	private String answer_number;

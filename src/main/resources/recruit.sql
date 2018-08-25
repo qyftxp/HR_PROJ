@@ -59,11 +59,7 @@ create table engage_resume (
 	total_points int,							-- 总分
 	test_amount int,							-- 考试次数
 	test_checker varchar(60),					-- 测试复核人
-<<<<<<< HEAD
-	test_check_time date,					-- 测试复核时间
-=======
-	test_check_time datetime,					-- 测试复核时间
->>>>>>> branch 'master' of https://github.com/qyftxp/HR_PROJ.git
+	test_check_time date,						-- 测试复核时间
 	pass_register varchar(60),					-- 通过登记人姓名
 	pass_regist_time date,						-- 通过登记时间
 	pass_checker varchar(60),					-- 通过复核人姓名

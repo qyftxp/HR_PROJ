@@ -21,4 +21,11 @@ public class SalaryGrantDetailsDaoImpl implements SalaryGrantDetailsDao {
 		this.sqlSession.insert("com.yc.dao.SalaryGrantDetailsDaoMapper.addSalaryStandardDetailsList", list);
 	}
 
+
+	@Override
+	public SalaryGrantDetails findByname(String name) {
+		return this.sqlSession.selectOne("com.yc.dao.SalaryGrantDetailsDaoMapper.getSalaryGrantDetailsByname", name);
+	}
+
+
 }

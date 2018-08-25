@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from salary_standard where standard_id = #{id}
 	</select>
 	<!-- 多条件查询 -->
+
 	<select id="getSalaryStandardByMap" resultType="SalaryStandard" parameterType="SalaryStandard">
 		select * from salary_standard
 		<where>
@@ -84,4 +85,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
+
 </mapper>
+

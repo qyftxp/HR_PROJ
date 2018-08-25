@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class SalaryGrantDetails implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer grd_id ;//grd_id" : 主键，自动增长列    
-	private String salary_standard_id ;// salary_standard_id" : 薪酬标准单编号    
+	private String salary_standard_id ;// salary_standard_id" : 薪酬标准单编号
+	private String salary_standard_name;//薪酬标准名称
 	private String salary_grant_id ;//salary_grant_id" : 薪酬发放编号
 	private String human_id ;// human_id" : 档案编号  
 	private String human_name ;//human_name" : 姓名 
@@ -13,6 +14,7 @@ public class SalaryGrantDetails implements Serializable{
 	private Double sale_sum ;// sale_sum" : 销售绩效金额 
 	private Double deduct_sum ;//deduct_sum" : 应扣金额
 	private Double salary_standard_sum ;//salary_standard_sum" : 标准薪酬总额
+	private Double demand_salaray_sum;//实发薪酬总额
 	private Double salary_paid_sum ;// salary_paid_sum" : 实发薪酬总额
 	public Integer getGrd_id() {
 		return grd_id;
@@ -74,12 +76,26 @@ public class SalaryGrantDetails implements Serializable{
 	public void setSalary_paid_sum(Double salary_paid_sum) {
 		this.salary_paid_sum = salary_paid_sum;
 	}
+	
+	public String getSalary_standard_name() {
+		return salary_standard_name;
+	}
+	public void setSalary_standard_name(String salary_standard_name) {
+		this.salary_standard_name = salary_standard_name;
+	}
+	public Double getDemand_salaray_sum() {
+		return demand_salaray_sum;
+	}
+	public void setDemand_salaray_sum(Double demand_salaray_sum) {
+		this.demand_salaray_sum = demand_salaray_sum;
+	}
 	@Override
 	public String toString() {
 		return "SalaryGrantDetails [grd_id=" + grd_id + ", salary_standard_id=" + salary_standard_id
-				+ ", salary_grant_id=" + salary_grant_id + ", human_id=" + human_id + ", human_name=" + human_name
-				+ ", bouns_sum=" + bouns_sum + ", sale_sum=" + sale_sum + ", deduct_sum=" + deduct_sum
-				+ ", salary_standard_sum=" + salary_standard_sum + ", salary_paid_sum=" + salary_paid_sum + "]";
+				+ ", salary_standard_name=" + salary_standard_name + ", salary_grant_id=" + salary_grant_id
+				+ ", human_id=" + human_id + ", human_name=" + human_name + ", bouns_sum=" + bouns_sum + ", sale_sum="
+				+ sale_sum + ", deduct_sum=" + deduct_sum + ", salary_standard_sum=" + salary_standard_sum
+				+ ", demand_salaray_sum=" + demand_salaray_sum + ", salary_paid_sum=" + salary_paid_sum + "]";
 	}
 	
 }

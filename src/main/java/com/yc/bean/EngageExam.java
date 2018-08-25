@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_exam implements Serializable {
+public class EngageExam implements Serializable {
 	private static final long serialVersionUID = 6538862673973451828L;
 	private Integer exa_id;
 	private String exam_number;

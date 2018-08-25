@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.EngageSubjectsDaoMapper">
+	<!-- 使用默认mybatis：二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />	
+
+	<insert id="add" parameterType="EngageSubjects" useGeneratedKeys="true" keyProperty="sub_id" >
+		insert into engage_subjects(first_kind_id, first_kind_name, second_kind_id, second_kind_name, register, regist_time, derivation, content, key_a, key_b, key_c, key_d, correct_key) 
+		values(#{first_kind_id}, #{first_kind_name}, #{second_kind_id}, #{second_kind_name}, #{register}, now(), #{derivation}, #{content}, #{key_a}, #{key_b}, #{key_c}, #{key_d}, #{correct_key})
+	</insert>
+	
+	<update id="update" parameterType="EngageSubjects">
+		update engage_subjects set derivation = #{derivation}, content = #{content}, key_a = #{key_a}, key_b = #{key_b}, key_c = #{key_c}, key_d = #{key_d}, correct_key = #{correct_key} 
+		where sub_id = #{sub_id}
+	</update>
+	
+	<select id="findAll" resultType="EngageSubjects">
+		select * from engage_subjects 
+		<if test="first_kind_name != null and '' != first_kind_name and second_kind_name != null and '' != second_kind_name">
+			where first_kind_name = #{first_kind_name} 
+			and second_kind_name = #{second_kind_name}
+		</if>
+	</select>
+	
+	<!-- 带查询条件统计查询 -->
+	<select id="getCount" resultType="int">
+		select count(*) from engage_subjects 
+	</select>
+	
+	<select id="findList" resultType="EngageSubjects">
+		select * from engage_subjects
+		<if test="orderby != null and orderby != ''">
+			order by #{orderby}
+			<if test="orderway != null and orderway != ''">
+				#{orderway}
+			</if>
+		</if>
+		<if test="start != null">
+			limit #{start},#{pagesize}
+		</if>
+	</select>
+
+</mapper>

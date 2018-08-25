@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_answer implements Serializable {
+public class EngageAnswer implements Serializable {
 	private static final long serialVersionUID = -4510970022234026350L;
 	private Integer ans_id;
 	private String answer_number;

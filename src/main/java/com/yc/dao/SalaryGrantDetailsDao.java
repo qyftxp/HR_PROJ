@@ -8,5 +8,9 @@ public interface SalaryGrantDetailsDao {
 	
 	public List<SalaryGrantDetails> findByid(String id);
 	
+
+	public SalaryGrantDetails findByname(String name);
+	
+
 	public void addSalaryStandardDetailsList(List<SalaryGrantDetails> list);
 }

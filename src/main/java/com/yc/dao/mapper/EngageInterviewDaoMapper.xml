@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.EngageInterviewDaoMapper">
+	<!-- 使用默认mybatis：二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />	
+
+	<insert id="add" parameterType="EngageInterview" useGeneratedKeys="true" keyProperty="ein_id" >
+		insert into engage_interview(human_name, interview_amount, human_major_kind_id, human_major_kind_name, human_major_id, human_major_name, image_degree, native_language_degree, foreign_language_degree, response_speed_degree, EQ_degree, IQ_degree, multi_quality_degree, register, checker, registe_time, check_time, resume_id, result, interview_comment, check_comment, interview_status, check_status) 
+		values(#{human_name}, #{interview_amount}, #{human_major_kind_id}, #{human_major_kind_name}, #{human_major_id}, #{human_major_name}, #{image_degree}, #{native_language_degree}, #{foreign_language_degree}, #{response_speed_degree}, #{EQ_degree}, #{IQ_degree}, #{multi_quality_degree}, #{register}, #{checker}, now(), now(), #{resume_id}, #{result}, #{interview_comment}, #{check_comment}, #{interview_status}, #{check_status})
+	</insert>
+	
+	<select id="findAll" resultType="EngageInterview">
+		select * from engage_interview 
+		<if test="human_major_kind_name != null and '' != human_major_kind_name">
+			where human_major_kind_name = #{human_major_kind_name}
+		</if>
+	</select>
+
+</mapper>

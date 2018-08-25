@@ -1,6 +1,8 @@
 package com.yc.bean;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Employee implements Serializable{
@@ -21,8 +23,10 @@ public class Employee implements Serializable{
 	
 	private String human_major_kind_name;//职位分类
 	
+
 	
 	
+
 	private String human_major_name;//职位名称
 	
 	private String human_mobilephone;//手机号码
@@ -43,12 +47,11 @@ public class Employee implements Serializable{
 	
 	private String human_party;//政治面貌
 	
-	
 	private String human_nationality;//国籍
 
 	private String human_race;//民族
 	
-	private Date human_birthday;//出生日期
+	private String human_birthday;//出生日期
 	
 	private String human_birthplace;//出生地
 	
@@ -63,7 +66,6 @@ public class Employee implements Serializable{
 	private String human_id_card;//身份证号
 	
 	private String remark;//备注
-	
 	
 	private String salary_standard_name;//薪酬标准名称
 	
@@ -85,15 +87,13 @@ public class Employee implements Serializable{
 	
 	private String check_status;//复核状态
 	
-	
-	
 	private String register;//档案登记人
 	
 	private String checker;//档案复核人
 	
 	private String changer;//档案变更人
 	
-	private Date regist_time;//档案登记时间
+	private String regist_time;//档案登记时间
 	
 	private Date check_time;//档案复核时间
 
@@ -183,9 +183,7 @@ public class Employee implements Serializable{
 		return human_race;
 	}
 
-	public Date getHuman_birthday() {
-		return human_birthday;
-	}
+	
 
 	public String getHuman_birthplace() {
 		return human_birthplace;
@@ -222,6 +220,15 @@ public class Employee implements Serializable{
 	public Double getSalary_sum() {
 		return salary_sum;
 	}
+
+	
+
+
+	
+
+	
+
+	
 
 	public Double getDemand_salaray_sum() {
 		return demand_salaray_sum;
@@ -268,8 +275,19 @@ public class Employee implements Serializable{
 	}
 
 	public Date getRegist_time() {
-		return regist_time;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date re_time = null;
+		try {
+			re_time = sdf.parse(regist_time);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return re_time;
 	}
+
+	
+
+
 
 	public Date getCheck_time() {
 		return check_time;
@@ -371,7 +389,9 @@ public class Employee implements Serializable{
 		this.human_race = human_race;
 	}
 
-	public void setHuman_birthday(Date human_birthday) {
+
+	public void setHuman_birthday(String human_birthday) {
+
 		this.human_birthday = human_birthday;
 	}
 
@@ -455,9 +475,9 @@ public class Employee implements Serializable{
 		this.changer = changer;
 	}
 
-	public void setRegist_time(Date regist_time) {
-		this.regist_time = regist_time;
-	}
+
+	
+
 
 	public void setCheck_time(Date check_time) {
 		this.check_time = check_time;
@@ -482,6 +502,13 @@ public class Employee implements Serializable{
 	public void setHuman_file_status(String human_file_status) {
 		this.human_file_status = human_file_status;
 	}
+
+	
+	
+	public void setRegist_time(String regist_time) {
+		this.regist_time = regist_time;
+	}
+
 
 	@Override
 	public String toString() {

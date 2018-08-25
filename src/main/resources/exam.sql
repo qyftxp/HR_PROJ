@@ -32,13 +32,15 @@ create table engage_answer (
 	human_name varchar(60),					-- 姓名 
 	human_idcard varchar(30),				-- 身份证号
 	major_kind_id char(2),					-- 职位分类编号
-	major_kind_name char(10),				-- major_kind_name 属于 engage_answer 
-	major_id char(10),						-- major_id 属于 engage_answer 
-	major_name char(10),					-- major_name 属于 engage_answer
+	major_kind_name varchar(10),				-- major_kind_name 属于 engage_answer 
+	major_id char(2),						-- major_id 属于 engage_answer 
+	major_name varchar(10),					-- major_name 属于 engage_answer
 	test_time date,							-- 测试时间  
 	use_time varchar(20),					-- use_time 属于 engage_answer 
 	total_point int							-- 总分  
 )  
+select * from engage_answer;
+drop table engage_answer;
 
 --4.考试答题详细信息                                                         
 create table engage_answer_details ( 

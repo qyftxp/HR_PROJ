@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_major_release implements Serializable {
+public class EngageMajorRelease implements Serializable {
 	private static final long serialVersionUID = 4085024041627267717L;
 	private Integer mre_id;
 	private String first_kind_id;

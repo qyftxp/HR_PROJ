@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_interview implements Serializable {
+public class EngageInterview implements Serializable {
 	private static final long serialVersionUID = 8169079022695109411L;
 	private Integer ein_id;
 	private String human_name;

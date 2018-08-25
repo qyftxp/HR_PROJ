@@ -10,6 +10,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSalaryGrantDetailsByid" resultType="SalaryGrantDetails" parameterType="String">
 		select * from salary_grant_details  where salary_grant_id=#{id}
 	</select>
+
+
+	
+	<select id="getSalaryGrantDetailsByname" resultType="SalaryGrantDetails" parameterType="String">
+		select * from salary_grant_details  where salary_grant_name=#{name}
+	</select>
+
+
 	<!-- 批量插入 -->
 	<insert id="addSalaryStandardDetailsList" parameterType="ArrayList" >
         insert into salary_grant_details 

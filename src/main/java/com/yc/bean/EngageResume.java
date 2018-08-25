@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_resume implements Serializable {
+public class EngageResume implements Serializable {
 	private static final long serialVersionUID = -4303686874356624513L;
 	private Integer res_id;
 	private String human_name;

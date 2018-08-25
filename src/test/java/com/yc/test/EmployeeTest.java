@@ -69,7 +69,7 @@ public class EmployeeTest {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
 		String s = "1996-03-29";
-		el.setHuman_birthday(sdf.parse(s));
+		el.setHuman_birthday(s);
 		el.setHuman_birthplace("广东");
 		
 		el.setHuman_age(22);
@@ -94,7 +94,7 @@ public class EmployeeTest {
 		el.setChanger("王五");
 		
 		
-		el.setRegist_time(new Date());
+		el.setRegist_time("2018-9-10");
 		
 		el.setCheck_time(new Date());
 		el.setChange_time(new Date());
@@ -116,18 +116,10 @@ public class EmployeeTest {
 		
     }
 	
-	@Test
+	
 
 
-    public void testfindStatus(){
-		
-		Map map = new HashMap();
-		map.put("department_name", "人事部");
-		List<Employee> list = employeeDaoImpl.findAllByStatus(map);
-		
-		System.out.println(list.get(0).getHuf_id());
-		System.out.println(list);
-    }
+   
 	
 	@Test
     public void findChar1()  {
@@ -148,6 +140,14 @@ public class EmployeeTest {
     }
 	
 
-
+    public void testfindStatus(){
+		
+		Map map = new HashMap();
+		map.put("department_name", "人事部");
+		List<Employee> list = employeeDaoImpl.findAllByStatus(map);
+		
+		System.out.println(list.get(0).getHuf_id());
+		System.out.println(list);
+    }
 
 }

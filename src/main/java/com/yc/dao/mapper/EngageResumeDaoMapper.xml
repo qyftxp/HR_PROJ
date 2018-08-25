@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.EngageResumeDaoMapper">
+	<!-- 使用默认mybatis：二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />	
+
+	<insert id="add" parameterType="EngageResume" useGeneratedKeys="true" keyProperty="res_id" >
+		insert into engage_resume(human_name, engage_type, human_address, human_postcode, human_major_kind_id, human_major_kind_name, human_major_id, human_major_name, human_telephone, human_email, human_hobby, human_specility, human_sex, human_party, human_race, human_age, human_educated_degree, human_educated_major, human_college, human_idcard, demand_salary_standard, human_history_records, remark, recomandation, human_picture, check_status, register, regist_time, checker, check_time, interview_status, total_points, test_amount, test_checker, test_check_time, pass_register, pass_regist_time, pass_checker, pass_check_time, pass_check_status, pass_checkComment, pass_passComment) 
+		values(#{human_name}, #{engage_type}, #{human_address}, #{human_postcode}, #{human_major_kind_id}, #{human_major_kind_name}, #{human_major_id}, #{human_major_name}, #{human_telephone}, #{human_email}, #{human_hobby}, #{human_specility}, #{human_sex}, #{human_party}, #{human_race}, #{human_age}, #{human_educated_degree}, #{human_educated_major}, #{human_college}, #{human_idcard}, #{demand_salary_standard}, #{human_history_records}, #{remark}, #{recomandation}, #{human_picture}, #{check_status}, #{register}, now(), #{checker}, now(), #{interview_status}, #{total_points}, #{test_amount}, #{test_checker}, now(), #{pass_register}, now(), #{pass_checker}, now(), #{pass_check_status}, #{pass_checkComment}, #{pass_passComment})
+	</insert>
+	
+	<update id="update" parameterType="EngageResume">
+		update engage_resume set remark = #{remark}, recomandation = #{recomandation}, check_status = #{check_status}, checker = #{checker}, check_time = now(), interview_status = #{interview_status}, total_points = #{total_points}, test_amount = #{test_amount}, test_checker = #{test_checker}, test_check_time = now(), pass_register = #{pass_register}, pass_regist_time = now(), pass_checker = #{pass_checker}, pass_check_time = now(), pass_check_status = #{pass_check_status}, pass_checkComment = #{pass_checkComment}, pass_passComment = #{pass_passComment}
+		where mre_id = #{mre_id}
+	</update>
+	
+	<select id="findAll" resultType="EngageResume">
+		select * from engage_resume 
+		<if test="human_major_kind_name != null and '' != human_major_kind_name">
+			where human_major_kind_name = #{human_major_kind_name}
+		</if>
+	</select>
+	
+	<delete id="delete">
+		delete from engage_resume where res_id = #{res_id}
+	</delete>
+
+</mapper>

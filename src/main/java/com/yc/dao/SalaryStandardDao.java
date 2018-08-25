@@ -21,4 +21,10 @@ public interface SalaryStandardDao {
 	
 	public void updateSalaryStandard(SalaryStandard ss);
 	
+
+		
+		
+	
+	
+	
 }

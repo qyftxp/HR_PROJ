@@ -3,7 +3,7 @@ package com.yc.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Engage_subjects implements Serializable {
+public class EngageSubjects implements Serializable {
 	private static final long serialVersionUID = -5814234088555871841L;
 	private Integer sub_id;
 	private String first_kind_id;
