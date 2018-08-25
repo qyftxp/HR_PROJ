@@ -118,6 +118,7 @@ public class EmployeeTest {
 	
 	@Test
 
+
     public void testfindStatus(){
 		
 		Map map = new HashMap();
@@ -127,6 +128,17 @@ public class EmployeeTest {
 		System.out.println(list.get(0).getHuf_id());
 		System.out.println(list);
     }
+	
+	@Test
+    public void findChar1()  {
+		
+		List list = publicCharBizImpl.findChar("爱好");
+		
+		System.out.println(list);
+    }
+	
+
+
 
     public void findChar() throws Exception {
 		

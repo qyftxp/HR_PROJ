@@ -20,8 +20,5 @@ public interface EmployeeDao {
 	
 	public int addModifyEmployee(ModifyEmployee memployee);
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/qyftxp/HR_PROJ.git
+
 }
