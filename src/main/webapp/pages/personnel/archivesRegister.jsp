@@ -8,7 +8,7 @@
 				url:"MajorKind_list.action",
 				type:"post",
 				data:"major_kind_id="+major_kind_id,
-				dateType:"json",
+				dataType:"json",
 				success:function(data){
 					var str="";
 					var length=data.rows.length;

@@ -2,8 +2,12 @@ package com.yc.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,5 +65,28 @@ public class EmployeeController {
 		return jsonmodel;
 		
 	}
+	
+	@RequestMapping("/findemployee.action")
+	@ResponseBody
+	public JsonModel findEmployee(HttpServletRequest request){
+		Map<String,Object> map=new HashMap<String,Object>();
+		if(request.getParameter("huf_id")!=null && !request.getParameter("huf_id").equals("")){
+			map.put("huf_id",request.getParameter("huf_id"));
+		}
+		
+		List<Employee> list= employeeBizImpl.findAllBysql(map);
+		JsonModel jm=new JsonModel();
+		System.out.println(list+"nananananananananannnananananananana");
+		if(list!=null && list.size()>0){
+			jm.setCode(1);
+			jm.setRows(list);
+		}else{
+			jm.setCode(0);
+			jm.setMsg("查询失败");
+		}
+		System.out.println(jm+"123456789");
+		return jm;
+	}
+	
 	
 }

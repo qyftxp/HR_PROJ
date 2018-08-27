@@ -3,172 +3,142 @@
 
 
 <script type="text/javascript">
-	$(function(){
-		$('#transferListTable').datagrid({
-			url:'resadmin/resorder.action?op=showOrderList',
-							pagination : true,
-							pageSize : 100,
-							pageList : [ 10, 50, 100, 150, 200 ],
-							fitColumns : true,
-							title : "人员列表",
-							idField : "roid",
-							rownumbers : true,
-							fit : true,
-							nowrap : true,
-							singleSelect : true,
-							columns : [ [
-									{
-										field : 'roid',
-										title : '档案编号',
-										width : 40,
-										align : 'center'
-									},
-									{
-										
-									},
-									{
-										field : 'userid',
-										title : '部门',
-										width : 70,
-										sortable : true,
-										align : 'center'
-									},
-									{
-										field : 'address',
-										title : '送货地址',
-										width : 150,
-										sortable : true,
-										align : 'center'
-									},
-									{
-										field : 'tel',
-										title : '电话',
-										width : 150,
-										align : 'center'
-									},
-									{
-										field : 'ordertime',
-										title : '下订时间',
-										width : 150,
-										sortable : true,
-										align : 'center'
-									},
-									{
-										field : 'deliverytime',
-										title : '送达时间',
-										width : 150,
-										align : 'center'
-									},
-									{
-										field : 'status',
-										title : '处理状态',
-										width : 150,
-										align : 'center'
-									},
-									{
-										field : '_operate',  //_operate 的作用是告诉easyui的框架，这个列不是从json中取出来的
-										title : '操作',
-										width : 150,
-										align : 'center',
-										formatter : function(val, row, index) {
-											var str = '<a href="javascript:void(0)" onclick="showReorderDetail('
-													+ index + ')">详情</a>';
-											if (row.status == '0') {
-												str += ' <a href="javascript:void(0)" onclick="printOrder('
-														+ index + ')">打单</a>';
-												str += ' <a href="javascript:void(0)" onclick="transfer('
-														+ index + ')">配送</a>';
-											}
-											return str;
-										}
-									} ] ]
-						})
-	})
-	//显示订单详情
-	function showReorderDetail(index) {
-		$('#resorderListTable').datagrid('selectRow', index);
-		var row = $('#resorderListTable').datagrid('getSelected');
-		$('#resorderItemListTable').datagrid(  //没有分页
-				{
-					url : "resadmin/resorder.action?op=showOrderitemList&roid="
-							+ row['roid'],
-					fitColumns : true,
-					rownumbers : true,
-					fit : true,
-					nowrap : true,
-					singleSelect : true,
-					//如果json中的数据除了rows,total外还有别的,则通过onLoadSuccess事件来取
-					onLoadSuccess : function(data) {
-						//备注
-						$('#orderPs').html(data.msg);
-					},
-					columns : [ [ {
-						field : 'fname',
-						title : "菜品名",
-						width : 40,
-						align : 'center'
-					}, {
-						field : 'dealprice',
-						title : '价格',
-						width : 40,
-						align : 'center'
-					}, {
-						field : 'num',
-						title : '数量',
-						width : 70,
-						align : 'center'
-					}, {
-						field : 'smallcount',
-						title : '小计',
-						width : 150,
-						align : 'center'
-					} ] ]
-				}
 
-		)
-	}
-	//配送
-	function transfer(index) {
-		$('#resorderListTable').datagrid('selectRow', index);
-		var row = $('#resorderListTable').datagrid('getSelected');
-		var roid = row['roid'];
-		$.ajax({
-			url : "resadmin/resorder.action?op=transfer&roid=" + roid,
-			type : "POST",
-			dataType : "JSON",
-			success : function(data) {
-				if (data.code == 1) {
-					$('#resorderListTable').datagrid("reload");
-				}
+function onchangeMajorKind(obj){
+	/* alert("123"); */
+	var major_kind_id=obj;
+	$.ajax({
+		url:"MajorKind_list.action",
+		type:"post",
+		data:"major_kind_id="+major_kind_id,
+		dateType:"json",
+		success:function(data){
+			var str="";
+			var length=data.rows.length;
+			for(var i=0;i<length;i++){
+				var major = data.rows[i];
+				str +='<option value="'+major.major_id+'">'+major.major_name+'</option>';
+				
 			}
-		})
-	}
-	
-	/**
-		打单
-	*/
-	function printOrder(index) {
-		$('#resorderListTable').datagrid('selectRow', index);//关键在这里
-		var row = $('#resorderListTable').datagrid('getSelected');
-		//alert("abc"+index+"\t"+row)
-		$.ajax({
-			url : "resadmin/resorder.action?op=printOrder",
-			type : "POST",
-			data : 'roid=' + row.roid,
-			dataType : "JSON",
-			success : function(data) {  //jsonModel   /  map
-				if (data.code == 1) {
-					alert('打印成功....');
-				}
-			}
-		})
-	}
+			/* alert(str); */
+			$("#Major").html(str);
+		}
+	});
+}
+
 </script>
 
 
 <body class="easyui-layout">
-	<div data-options="region:'center'" title="调动登记" style="height: 70%">
-		<table id="transferListTable"></table>
+	
+	<div class="easyui-panel" title="调动登记" style="height: 100%">
+		<div style="margin:0 0 0 700px">
+				<a href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-add'">Add</a>
+				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">Remove</a>
+				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">Save</a>
+				<a href="/pages/transfer/find.jsp" class="easyui-linkbutton" data-options="iconCls:'icon-return'">Return</a>
+		</div>
+		
+		<div style="padding:10px 60px 20px 60px">
+		    <form id="ff" method="post">
+		    	<table CELLPADDING="5" CELLSPACING="50" style="border-collapse:separate; border-spacing:50px 0px;">
+		    		<tr>
+		    			<td>档案编号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    			
+		    				<input class="easyui-textbox" type="text" name="name" data-options="required:true"></input>
+		    			</td>
+		    			
+		    			<td>部门:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    				<input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input>
+		    			</td>
+		    			
+		    		</tr>
+		    		
+		    		<tr>
+		    			<td>姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    				<input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input>
+		    			</td>
+		    			
+		    			<td>原职位分类:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    				<input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input>
+		    			</td>
+		    			
+		    		</tr>
+		    		
+		    		<tr>
+		    			<td>原职位名称:</td>
+		    			<td>
+		    				<input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input>
+		    			</td>
+		    		</tr>
+		    		<tr>
+		    			<td>原薪酬标准:</td>
+		    			<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>
+		    		</tr>
+		    		<tr>
+		    			<td>新部门:&nbsp;&nbsp;&nbsp;&nbsp;
+		    			 <select id="department" class="easyui-combobox" name="department_nameList" style="width: 100px;" editable="false">
+								<c:forEach items="${department_nameList}" var="list">
+									<option value="${list.department_name}">${list.department_name}</option>
+								</c:forEach>
+							</select>
+						</td>
+		    		</tr>
+		    		<tr>
+		    			<td>新职位分类:&nbsp;&nbsp;&nbsp;&nbsp;
+		    			 <select  class="human_major_kind_nameList" name="human_major_kind_nameList" style="width: 100px;" editable="false"
+		    			 	onchange="onchangeMajorKind(this.value)">
+								<c:forEach items="${human_major_kind_nameList}" var="major_kind_list">
+									<option value="${major_kind_list.major_kind_id}">${major_kind_list.major_kind_name}</option>
+								</c:forEach>
+							</select>
+						</td>
+		    		</tr>
+		    		<tr>
+		    			<td>新职位名称:&nbsp;&nbsp;&nbsp;&nbsp;
+			    			 <select  name="kk" id="Major">
+		    				
+		    				</select>
+						</td>
+		    		</tr>
+		    		<tr>
+		    			<td>新薪酬标准:&nbsp;&nbsp;&nbsp;&nbsp;
+		    			 <select id="salaryStandar" class="easyui-combobox" name="salary_standardList" style="width: 100px;" editable="false">
+								<c:forEach items="${salary_standardList}" var="standardlist">
+									<option value="${standardlist.standard_name}">${standardlist.standard_name}</option>
+								</c:forEach>
+							</select>
+						</td>
+		    		</tr>
+		    		<tr>
+		    			<td>登记人:</td>
+		    			<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>
+		    		</tr>
+		    		<tr>
+		    			<td>登记时间:</td>
+		    			<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>
+		    		</tr>
+		    		<tr>
+		    			<td>调动原因:</td>
+		    			<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>
+		    		</tr>
+		    	</table>
+		    </form>
+	    <div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+	    </div>
+	    </div>
+	</div>
+	<script>
+		function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+		
 	</div>
 </body>
 </html>

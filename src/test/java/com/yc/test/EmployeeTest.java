@@ -69,7 +69,7 @@ public class EmployeeTest {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
 		String s = "1996-03-29";
-		el.setHuman_birthday(s);
+		
 		el.setHuman_birthplace("广东");
 		
 		el.setHuman_age(22);
@@ -94,7 +94,7 @@ public class EmployeeTest {
 		el.setChanger("王五");
 		
 		
-		el.setRegist_time("2018-9-10");
+	
 		
 		el.setCheck_time(new Date());
 		el.setChange_time(new Date());
