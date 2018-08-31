@@ -101,7 +101,8 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 2,
 					"text" : "薪酬标准登记复核",
 					"attributes" : {
-						"url" : "<iframe width='100%'  height='100%' src='' />"
+
+						"url" : "<iframe width='100%'  height='100%' src='pages/salary/salarystandardcheck.jsp' />"
 					}
 				},
 				{
@@ -117,9 +118,16 @@ function addTab(title, iconCls, closable, href, content) {
 			"id" : 1,
 			"text" : "薪酬发放登记",
 			"attributes" : {
-				"url" : "<iframe width='100%' height='100%' src='resadmin/resfood/rank.jsp' />"
+				"url" : "<iframe width='100%' height='100%' src='pages/salary/salarygrantfind.jsp' />"
+			}, 
+					
+		},{
+			"id" : 2,
+			"text" : "薪酬发放复核",
+			"attributes" : {
+				"url" : "<iframe width='100%' height='100%' src='pages/salary/salarygrantcheck.jsp' />"
 			}
-		} ];
+		}];
 		//调动管理
 		var transferTreeData = [
 				{
@@ -133,7 +141,9 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 2,
 					"text" : "调动审核",
 					"attributes" : {
+
 						"url" : "<iframe width='100%'  height='100%' src='pages/transfer/WaitCheck.jsp' />"
+
 					}
 				} ];
 		
@@ -196,49 +206,49 @@ function addTab(title, iconCls, closable, href, content) {
 			
 				<li><span>职位发布</span>
 					<ul>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('职位发布登记','icon-mini-add',true,'','<iframe src=back/satisfaction/openSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">职位发布登记</a></li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('职位发布变更','icon-mini-add',true,'','<iframe src=back/satisfaction/showTeacherSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">职位发布变更</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('职位发布登记','icon-mini-add',true,'','<iframe src=pages/recruitment/job/addEngageMajorRelease.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">职位发布登记</a></li>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('职位发布变更','icon-mini-add',true,'','<iframe src=pages/recruitment/job/updateEngageMajorRelease.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">职位发布变更</a>
 							</li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('职位发布查询','icon-mini-add',true,'','<iframe src=back/satisfaction/showClassSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:100%;></iframe>')">职位发布查询</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('职位发布查询','icon-mini-add',true,'','<iframe src=pages/recruitment/job/findEngageMajorRelease.jsp  frameborder=0 style=border:0;width:100%;height:100%;></iframe>')">职位发布查询</a>
 							</li>
 						</ul></li>
 				<li><span>简历管理</span>
 					<ul>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('简历登记','icon-mini-add',true,'','<iframe src=back/satisfaction/openSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">简历登记</a></li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('简历筛选','icon-mini-add',true,'','<iframe src=back/satisfaction/showTeacherSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">简历筛选</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('简历登记','icon-mini-add',true,'','<iframe src=pages/recruitment/resume/addEngageResume.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">简历登记</a></li>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('简历筛选','icon-mini-add',true,'','<iframe src=pages/recruitment/resume/findEngageResume.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">简历筛选</a>
 							</li>
 						</ul></li>
 			  <li><span>面试管理</span>
 					<ul>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('面试结果登记','icon-mini-add',true,'','<iframe src=back/satisfaction/openSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">面试结果登记</a></li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('面试筛选','icon-mini-add',true,'','<iframe src=back/satisfaction/showTeacherSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">面试筛选</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('面试结果登记','icon-mini-add',true,'','<iframe src=pages/recruitment/interview/addEngageInterview.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">面试结果登记</a></li>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('面试筛选','icon-mini-add',true,'','<iframe src=pages/recruitment/interview/findEngageInterview.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">面试筛选</a>
 							</li>
 							
 						</ul></li>
 			<li><span>招聘试题库管理</span>
 					<ul>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('试题登记','icon-mini-add',true,'','<iframe src=back/satisfaction/openSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">试题登记</a></li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('试题查询','icon-mini-add',true,'','<iframe src=back/satisfaction/showTeacherSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">试题查询</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('试题登记','icon-mini-add',true,'','<iframe src=pages/recruitment/questions/addEngageSubjects.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">试题登记</a></li>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('试题查询','icon-mini-add',true,'','<iframe src=pages/recruitment/questions/findEngageSubjects.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">试题查询</a>
 							</li>
 						</ul></li>
 			<li><span> 招聘考试管理 </span>
 					<ul>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('考试出题','icon-mini-add',true,'','<iframe src=back/satisfaction/openSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试出题</a></li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('考试答题','icon-mini-add',true,'','<iframe src=back/satisfaction/showTeacherSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试答题</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('考试出题','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/addEngageSubjects.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试出题</a></li>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('考试答题','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/addEngageAnswer.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试答题</a>
 							</li>
-							<li><a href="javascript:void(0);"
-								onclick="javascript:addTab('成绩查询筛选','icon-mini-add',true,'','<iframe src=back/satisfaction/showClassSatisfaction.jsp  frameborder=0 style=border:0;width:100%;height:100%;></iframe>')">成绩查询筛选</a>
+							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
+								onclick="javascript:addTab('成绩查询筛选','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/findGrade.jsp  frameborder=0 style=border:0;width:100%;height:100%;></iframe>')">成绩查询筛选</a>
 							</li>
 						</ul></li>
 			</ul>

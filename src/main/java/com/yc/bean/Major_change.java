@@ -32,7 +32,7 @@ public class Major_change implements Serializable{
 	private String checker ;  //-- checker" : 复核人
 	private String regist_time ;  //-- regist_time" : 登记时间   
 	private String check_time ;  //  -- check_time" : 复核时间 
-	
+	private String status;     //     --status查询的状态
 	
 	public Integer getMch_id() {
 		return mch_id;
@@ -193,6 +193,15 @@ public class Major_change implements Serializable{
 	public void setCheck_time(String check_time) {
 		this.check_time = check_time;
 	}
+	
+	
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "Major_change [mch_id=" + mch_id + ", department_name=" + department_name + ", major_kind_id="
@@ -205,8 +214,9 @@ public class Major_change implements Serializable{
 				+ ", new_salary_standard_name=" + new_salary_standard_name + ", new_salary_sum=" + new_salary_sum
 				+ ", change_reason=" + change_reason + ", check_reason=" + check_reason + ", check_status="
 				+ check_status + ", register=" + register + ", checker=" + checker + ", regist_time=" + regist_time
-				+ ", check_time=" + check_time + "]";
+				+ ", check_time=" + check_time + ", status=" + status + "]";
 	}
+	
 	
 	
 	

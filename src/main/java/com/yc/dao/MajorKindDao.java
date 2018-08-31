@@ -12,10 +12,12 @@ public interface MajorKindDao {
 	 * 根据职位分类编号查询所有职位
 	 * */
 	public List<Major> findMajor(String kind_id);
+
 	
 	
 	/**
 	 * 根据职位分类编号查询所有职位
 	 * */
 	public List<Major> findNameMajor(String kind_name);
+
 }

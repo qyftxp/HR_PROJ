@@ -11,6 +11,5 @@ public interface SalaryGrantDetailsDao {
 
 	public SalaryGrantDetails findByname(String name);
 	
-
 	public void addSalaryStandardDetailsList(List<SalaryGrantDetails> list);
 }

@@ -29,6 +29,7 @@ public class MajorKindBizImpl implements MajorKindBiz {
 		List<Major> list = majorKindDaoImpl.findMajor(kind_id);
 		return list;
 	}
+
 	
 	@Override
 	public List<Major> findNameMajor(String kind_name) {
@@ -36,5 +37,6 @@ public class MajorKindBizImpl implements MajorKindBiz {
 		List<Major> list = majorKindDaoImpl.findNameMajor(kind_name);
 		return list;
 	}
+
 
 }

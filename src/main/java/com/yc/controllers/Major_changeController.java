@@ -31,6 +31,9 @@ public class Major_changeController {
 	public JsonModel Register(Major_change major_change,HttpServletRequest request){
 		String human_file_status="调动待审核";
 		Integer huf_id=Integer.parseInt(request.getParameter("huf_id"));
+		
+		major_change.setStatus("调动待审核");
+		
 		JsonModel jm=new JsonModel();
 		try {
 			boolean bl=major_changeBiz.transferRegister(major_change, human_file_status,huf_id);
@@ -57,6 +60,9 @@ public class Major_changeController {
 				map.put("regist_time",request.getParameter("regist_time"));
 			}
 			List<Employee> list=employeeBiz.findAllByStatus(map);
+			
+			System.out.println(list);
+			
 			JsonModel jm=new JsonModel();
 			if(list!=null && list.size()>0){
 				jm.setCode(1);

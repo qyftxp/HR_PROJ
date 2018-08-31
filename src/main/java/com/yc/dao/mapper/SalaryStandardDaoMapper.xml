@@ -10,9 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSalaryStandardById" resultType="SalaryStandard"
 		parameterType="String">
 		select * from salary_standard where standard_id = #{id}
-	</select>
-	<!-- 多条件查询 -->
 
+	</select>
 	<select id="getSalaryStandardByMap" resultType="SalaryStandard" parameterType="SalaryStandard">
 		select * from salary_standard
 		<where>
@@ -27,24 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
-	<resultMap id="salarystandard" type="com.yc.bean.SalaryStandard">
-        <id column="ssd_id" property="ssd_id" />
-        <result column="standard_id" property="standard_id" />
-        <result column="standard_name" property="standard_id" />
-        <result column="designer" property="standard_id" />
-        <result column="register" property="standard_id" />
-        <result column="checker" property="standard_id" />
-        <result column="changer" property="standard_id" />
-        <result column="regist_time" property="standard_id" />
-        <result column="check_time" property="standard_id" />
-        <result column="change_time" property="standard_id" />
-        <result column="salary_sum" property="standard_id" />
-        <result column="check_status" property="standard_id" />
-        <result column="change_status" property="standard_id" />
-        <result column="check_comment" property="standard_id" />
-        <result column="remark" property="standard_id" />
-    </resultMap>
+
 
 	<!-- 添加 -->
 	<insert id="addSalaryStandard" parameterType="SalaryStandard">
@@ -80,11 +62,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</set>
 		where ssd_id=#{ssd_id};
 	</update>
-
-
-
-
-
-
 </mapper>
 

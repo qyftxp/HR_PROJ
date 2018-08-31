@@ -36,7 +36,7 @@ public class EmployeeController {
 		
 		//档案编号：时间+身份证后4位
 		String card = employee.getHuman_id_card();
-		//System.out.println(employee);
+		System.out.println(employee);
 		String card4 = card.substring(card.length()-4,card.length());
 		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
@@ -65,6 +65,7 @@ public class EmployeeController {
 		return jsonmodel;
 		
 	}
+	
 	
 	@RequestMapping("/findemployee.action")
 	public String findEmployee(HttpServletRequest request){

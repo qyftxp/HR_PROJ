@@ -6,12 +6,11 @@ public class PublicChar implements Serializable{
 	
 	private static final long serialVersionUID = -4033576806211675108L;
 
-	private Integer pbc_id;
-	
-	private String attribute_kind;
-	
-	private String attribute_name;
 
+	private Integer pbc_id;	
+	private String attribute_kind;	
+	private String attribute_name;
+	
 	public Integer getPbc_id() {
 		return pbc_id;
 	}
@@ -38,9 +37,8 @@ public class PublicChar implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PublicChar [pbc_id=" + pbc_id + ", attribute_kind=" + attribute_kind + ", attribute_name="
-				+ attribute_name + "]";
+		return "PublicChar [pbc_id=" + pbc_id + ", attribute_kind="
+				+ attribute_kind + ", attribute_name=" + attribute_name + "]";
 	}
-	
-	
+
 }

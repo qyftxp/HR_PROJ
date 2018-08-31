@@ -8,12 +8,11 @@ import javax.servlet.ServletContextListener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.yc.bean.User;
+
 import com.yc.biz.DepartmentBiz;
 import com.yc.biz.MajorKindBiz;
 import com.yc.biz.PublicCharBiz;
 import com.yc.biz.SalaryStandarBiz;
-import com.yc.biz.UserBiz;
 
 public class InitListener implements ServletContextListener {
 
@@ -46,8 +45,6 @@ public class InitListener implements ServletContextListener {
     	//薪酬标准
     	SalaryStandarBiz salaryStandarBizImpl = (SalaryStandarBiz) ac.getBean("salaryStandarBizImpl");
     	
-    	//登录的用户
-    	UserBiz userBizImpl=(UserBiz) ac.getBean("useBizImpl");
     	
     	List<?> human_hobbyList = publicCharBizImpl.findChar("爱好");
     	
@@ -66,8 +63,6 @@ public class InitListener implements ServletContextListener {
     	List<?> human_educated_majorList = publicCharBizImpl.findChar("专业");
     	
     	List<?> human_sexList = publicCharBizImpl.findChar("性别");
-    	
-    	
     	
     	//所有部门
     	List<?> department_nameList = departmentBizImpl.getDepartmentList();

@@ -79,7 +79,7 @@ function onchangeMajorKind(obj){
 		    	<table CELLPADDING="5" CELLSPACING="30" style="border-collapse:separate; border-spacing:50px 0px;">
 		    			<c:forEach items="${jm}" var="emp">
 							 <input id="huf_id" type="hidden" name="huf_id" value="${emp.huf_id}"/>
-								
+							 <input id="status" type="hidden" name="status" value="调动待审核"/>	
 		    		<tr>
 		    			<td><strong>档案编号:</strong>
 		    			

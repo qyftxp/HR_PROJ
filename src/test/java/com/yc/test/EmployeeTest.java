@@ -44,7 +44,7 @@ public class EmployeeTest {
 		System.out.println(list);
     }
 	
-	@Test
+/*	@Test
     public void add() throws Exception {
 		
 		Employee el = new Employee();
@@ -69,7 +69,8 @@ public class EmployeeTest {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
 		String s = "1996-03-29";
-		
+
+		el.setHuman_birthday(s);
 		el.setHuman_birthplace("广东");
 		
 		el.setHuman_age(22);
@@ -94,7 +95,7 @@ public class EmployeeTest {
 		el.setChanger("王五");
 		
 		
-	
+		el.setRegist_time("2018-9-10");
 		
 		el.setCheck_time(new Date());
 		el.setChange_time(new Date());
@@ -106,7 +107,7 @@ public class EmployeeTest {
 		
 		int r = employeeDaoImpl.addEmployee(el);
 		System.out.println(r+"添加成功");
-    }
+    }*/
 	
 	@Test
     public void del() throws Exception {
@@ -116,22 +117,8 @@ public class EmployeeTest {
 		
     }
 	
-	
 
-
-   
-	
 	@Test
-    public void findChar1()  {
-		
-		List list = publicCharBizImpl.findChar("爱好");
-		
-		System.out.println(list);
-    }
-	
-
-
-
     public void findChar() throws Exception {
 		
 		List list = publicCharBizImpl.findChar("爱好");
@@ -139,7 +126,6 @@ public class EmployeeTest {
 		System.out.println(list);
     }
 	
-
     public void testfindStatus(){
 		
 		Map map = new HashMap();
@@ -149,5 +135,4 @@ public class EmployeeTest {
 		System.out.println(list.get(0).getHuf_id());
 		System.out.println(list);
     }
-
 }

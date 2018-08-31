@@ -3,7 +3,9 @@ package com.yc.web.model;
 import java.io.Serializable;
 import java.util.List;
 
+
 import com.yc.bean.Major;
+
 
 public class JsonModel<T> implements Serializable {
 	private static final long serialVersionUID = 8339928920251792494L;
@@ -84,9 +86,11 @@ public class JsonModel<T> implements Serializable {
 		this.rows = rows;
 	}
 
+
 	@Override
 	public String toString() {
 		return "JsonModel [code=" + code + ", msg=" + msg + ", obj=" + obj + ", rows=" + rows + "]";
 	}
+
 
 }

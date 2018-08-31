@@ -35,6 +35,7 @@ public class MajorKindController {
 		return jsonmodel;
 		
 	}
+
 	
 	//按职位分类名称查
 	@RequestMapping("MajorKindName_list.action")
@@ -54,4 +55,5 @@ public class MajorKindController {
 		return jsonmodel;
 		
 	}
+
 }

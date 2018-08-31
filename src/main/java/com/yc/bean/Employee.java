@@ -1,6 +1,8 @@
 package com.yc.bean;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Employee implements Serializable{
@@ -20,8 +22,6 @@ public class Employee implements Serializable{
 	private String human_postcode;//邮政编码
 	
 	private String human_major_kind_name;//职位分类
-	
-	
 	
 	private String human_major_name;//职位名称
 	
@@ -43,12 +43,11 @@ public class Employee implements Serializable{
 	
 	private String human_party;//政治面貌
 	
-	
 	private String human_nationality;//国籍
 
 	private String human_race;//民族
 	
-	private Date human_birthday;//出生日期
+	private String human_birthday;//出生日期
 	
 	private String human_birthplace;//出生地
 	
@@ -63,8 +62,19 @@ public class Employee implements Serializable{
 	private String human_id_card;//身份证号
 	
 	private String remark;//备注
+
 	
+	private String salary_standard_id;//薪酬标准id-->需要加一个字段薪酬标准编号
+
 	
+	public String getSalary_standard_id() {
+		return salary_standard_id;
+	}
+
+	public void setSalary_standard_id(String salary_standard_id) {
+		this.salary_standard_id = salary_standard_id;
+	}
+
 	private String salary_standard_name;//薪酬标准名称
 	
 	private Double salary_sum;//基本薪酬总额
@@ -85,25 +95,23 @@ public class Employee implements Serializable{
 	
 	private String check_status;//复核状态
 	
-	
-	
 	private String register;//档案登记人
 	
 	private String checker;//档案复核人
 	
 	private String changer;//档案变更人
 	
-	private Date regist_time;//档案登记时间
+	private String regist_time;//档案登记时间
 	
-	private Date check_time;//档案复核时间
+	private String check_time;//档案复核时间
 
-	private Date change_time;//档案变更时间
+	private String change_time;//档案变更时间
 	
-	private Date lastly_change_time;//档案最近更改时间
+	private String lastly_change_time;//档案最近更改时间
 	
-	private Date delete_time;//档案删除时间
+	private String delete_time;//档案删除时间
 	
-	private Date recovery_time;//档案恢复时间
+	private String recovery_time;//档案恢复时间
 	
 	private String human_file_status;//档案状态
 
@@ -183,7 +191,7 @@ public class Employee implements Serializable{
 		return human_race;
 	}
 
-	public Date getHuman_birthday() {
+	public String getHuman_birthday() {
 		return human_birthday;
 	}
 
@@ -267,30 +275,18 @@ public class Employee implements Serializable{
 		return changer;
 	}
 
-	public Date getRegist_time() {
+	public String getRegist_time() {
 		return regist_time;
 	}
 
-	public Date getCheck_time() {
+	
+
+
+	public String getCheck_time() {
 		return check_time;
 	}
 
-	public Date getChange_time() {
-		return change_time;
-	}
-
-	public Date getLastly_change_time() {
-		return lastly_change_time;
-	}
-
-	public Date getDelete_time() {
-		return delete_time;
-	}
-
-	public Date getRecovery_time() {
-		return recovery_time;
-	}
-
+	
 	public String getHuman_file_status() {
 		return human_file_status;
 	}
@@ -302,8 +298,6 @@ public class Employee implements Serializable{
 	public void setHuman_id(String human_id) {
 		this.human_id = human_id;
 	}
-	
-	
 
 	public void setDepartment_name(String department_name) {
 		this.department_name = department_name;
@@ -373,7 +367,7 @@ public class Employee implements Serializable{
 		this.human_race = human_race;
 	}
 
-	public void setHuman_birthday(Date human_birthday) {
+	public void setHuman_birthday(String human_birthday) {
 		this.human_birthday = human_birthday;
 	}
 
@@ -457,32 +451,52 @@ public class Employee implements Serializable{
 		this.changer = changer;
 	}
 
-	public void setRegist_time(Date regist_time) {
-		this.regist_time = regist_time;
-	}
 
-	public void setCheck_time(Date check_time) {
+
+	public void setCheck_time(String check_time) {
 		this.check_time = check_time;
 	}
 
-	public void setChange_time(Date change_time) {
+	
+	public void setHuman_file_status(String human_file_status) {
+		this.human_file_status = human_file_status;
+	}
+	
+	
+	public void setRegist_time(String regist_time) {
+		this.regist_time = regist_time;
+	}
+
+	public String getChange_time() {
+		return change_time;
+	}
+
+	public String getLastly_change_time() {
+		return lastly_change_time;
+	}
+
+	public String getDelete_time() {
+		return delete_time;
+	}
+
+	public String getRecovery_time() {
+		return recovery_time;
+	}
+
+	public void setChange_time(String change_time) {
 		this.change_time = change_time;
 	}
 
-	public void setLastly_change_time(Date lastly_change_time) {
+	public void setLastly_change_time(String lastly_change_time) {
 		this.lastly_change_time = lastly_change_time;
 	}
 
-	public void setDelete_time(Date delete_time) {
+	public void setDelete_time(String delete_time) {
 		this.delete_time = delete_time;
 	}
 
-	public void setRecovery_time(Date recovery_time) {
+	public void setRecovery_time(String recovery_time) {
 		this.recovery_time = recovery_time;
-	}
-
-	public void setHuman_file_status(String human_file_status) {
-		this.human_file_status = human_file_status;
 	}
 
 	@Override
@@ -497,16 +511,18 @@ public class Employee implements Serializable{
 				+ human_race + ", human_birthday=" + human_birthday + ", human_birthplace=" + human_birthplace
 				+ ", human_age=" + human_age + ", human_educated_degree=" + human_educated_degree
 				+ ", human_educated_years=" + human_educated_years + ", human_educated_major=" + human_educated_major
-				+ ", human_id_card=" + human_id_card + ", remark=" + remark + ", salary_standard_name="
-				+ salary_standard_name + ", salary_sum=" + salary_sum + ", demand_salaray_sum=" + demand_salaray_sum
-				+ ", paid_salary_sum=" + paid_salary_sum + ", major_change_amount=" + major_change_amount
-				+ ", file_chang_amount=" + file_chang_amount + ", human_histroy_id=" + human_histroy_id
-				+ ", human_family_membership=" + human_family_membership + ", human_picture=" + human_picture
-				+ ", check_status=" + check_status + ", register=" + register + ", checker=" + checker + ", changer="
-				+ changer + ", regist_time=" + regist_time + ", check_time=" + check_time + ", change_time="
-				+ change_time + ", lastly_change_time=" + lastly_change_time + ", delete_time=" + delete_time
-				+ ", recovery_time=" + recovery_time + ", human_file_status=" + human_file_status + "]";
+				+ ", human_id_card=" + human_id_card + ", remark=" + remark + ", salary_standard_id="
+				+ salary_standard_id + ", salary_standard_name=" + salary_standard_name + ", salary_sum=" + salary_sum
+				+ ", demand_salaray_sum=" + demand_salaray_sum + ", paid_salary_sum=" + paid_salary_sum
+				+ ", major_change_amount=" + major_change_amount + ", file_chang_amount=" + file_chang_amount
+				+ ", human_histroy_id=" + human_histroy_id + ", human_family_membership=" + human_family_membership
+				+ ", human_picture=" + human_picture + ", check_status=" + check_status + ", register=" + register
+				+ ", checker=" + checker + ", changer=" + changer + ", regist_time=" + regist_time + ", check_time="
+				+ check_time + ", change_time=" + change_time + ", lastly_change_time=" + lastly_change_time
+				+ ", delete_time=" + delete_time + ", recovery_time=" + recovery_time + ", human_file_status="
+				+ human_file_status + "]";
 	}
 
+	
 	
 }

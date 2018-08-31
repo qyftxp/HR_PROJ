@@ -22,6 +22,9 @@
 <script type="text/javascript" src="jquery-easyui-1.5.4.5//locale/easyui-lang-zh_CN.js"></script>
 
 
+<script type="text/javascript" src="jquery-easyui-1.5.4.5//locale/easyui-lang-zh_CN.js"></script>
+
+
 <title>HR人力资源管理系统</title>
 </head>
 <body class="easyui-layout">

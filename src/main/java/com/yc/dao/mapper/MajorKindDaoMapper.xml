@@ -16,10 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from config_major where major_kind_id=#{major_kind_id}
 	</select>
 	
+
 	
 	<select id="findNameMajor" resultType="Major" >
 		select * from config_major where major_kind_name=#{major_kind_name}
 	</select>
 	
 	
+
 </mapper>

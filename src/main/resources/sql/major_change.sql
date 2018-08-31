@@ -36,4 +36,6 @@ create table major_change (
 	register varchar(60) ,-- register" : 登记人
 	checker varchar(60) ,-- checker" : 复核人
 	regist_time varchar(20) ,-- regist_time" : 登记时间   
-	check_time varchar(20) )  -- check_time" : 复核时间 
+	check_time varchar(20), 
+	status varchar(20)
+	)  -- check_time" : 复核时间 
