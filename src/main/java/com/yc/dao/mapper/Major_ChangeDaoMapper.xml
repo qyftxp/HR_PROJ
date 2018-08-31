@@ -32,6 +32,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="human_file_status !=null and human_file_status!=''">
 				and human_file_status = #{human_file_status}
 			</if>
+			
+			<if test="status !=null and status!=''">
+				and status= #{status}
+			</if>
+			
 		</where>
 	</sql>
 	
@@ -61,9 +66,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addMajor_change_register" parameterType="Major_change" keyProperty="mch_id" useGeneratedKeys="true">
 		insert into major_change(human_id,department_name,human_name,major_kind_name,major_name,
 		salary_standard_name,new_department_name,new_major_kind_name,new_major_name,new_salary_standard_name,
-		register,regist_time,change_reason) values(#{human_id},#{department_name},#{human_name},#{major_kind_name},
+		register,regist_time,change_reason,status) values(#{human_id},#{department_name},#{human_name},#{major_kind_name},
 		#{major_name},#{salary_standard_name},#{new_department_name},#{new_major_kind_name},
-		#{new_major_name},#{new_salary_standard_name},#{register},#{regist_time},#{change_reason})
+		#{new_major_name},#{new_salary_standard_name},#{register},#{regist_time},#{change_reason},#{status})
 	</insert>
 	
 	
@@ -73,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 复核调动信息 -->
 	<update id="updateMajor_change" parameterType="Major_change">
 		update major_change set checker=#{checker},check_time=#{check_time},check_reason=#{check_reason},
-		check_status=#{check_status} where mch_id=#{mch_id}
+		check_status=#{check_status},status=#{status} where mch_id=#{mch_id}
 	</update>
 	
 	

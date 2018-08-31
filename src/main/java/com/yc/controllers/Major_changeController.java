@@ -101,7 +101,7 @@ public class Major_changeController {
 	@ResponseBody
 	public JsonModel findWaitCheck(HttpServletRequest request){
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("human_file_status", "调动待审核");
+		map.put("status", "调动待审核");
 		List<Major_change> list=major_changeBiz.findAllBysql(map);
 		JsonModel jm=new JsonModel();
 		if(list!=null && list.size()>0){
@@ -121,6 +121,9 @@ public class Major_changeController {
 	public JsonModel checkTransferStatus(Major_change major_change,HttpServletRequest request){
 		int check_status=Integer.parseInt(request.getParameter("check_status"));
 		System.out.println(request.getParameter("check_status"));
+		
+		major_change.setStatus("正常");
+		
 		Employee employee=new Employee();
 		employee.setDepartment_name(request.getParameter("new_department_name"));
 		employee.setHuman_major_kind_name(major_change.getNew_major_kind_name());
