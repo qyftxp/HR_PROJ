@@ -67,9 +67,7 @@ public class Major_change implements Serializable{
 	public String getNew_major_name() {
 		return new_major_name;
 	}
-	public String getHuman_id() {
-		return human_id;
-	}
+	
 	public String getHuman_name() {
 		return human_name;
 	}
@@ -145,6 +143,11 @@ public class Major_change implements Serializable{
 	public void setNew_major_name(String new_major_name) {
 		this.new_major_name = new_major_name;
 	}
+	
+	
+	public String getHuman_id() {
+		return human_id;
+	}
 	public void setHuman_id(String human_id) {
 		this.human_id = human_id;
 	}
@@ -204,6 +207,7 @@ public class Major_change implements Serializable{
 				+ check_status + ", register=" + register + ", checker=" + checker + ", regist_time=" + regist_time
 				+ ", check_time=" + check_time + "]";
 	}
+	
 	
 	
 	

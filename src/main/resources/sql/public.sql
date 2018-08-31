@@ -107,7 +107,7 @@ insert into config_major_kind(major_kind_id,major_kind_name) values('02','软件
 insert into config_major_kind(major_kind_id,major_kind_name) values('03','人力资源');
 insert into config_major_kind(major_kind_id,major_kind_name) values('04','生产部');
 
-
+select * from config_major where major_kind_name='销售';
 
 /* 创建新表 "config_major"。                                                                       */
 /* "config_major" : 职位设置                                                                      */

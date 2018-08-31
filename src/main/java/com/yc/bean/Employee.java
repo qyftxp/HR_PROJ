@@ -302,6 +302,8 @@ public class Employee implements Serializable{
 	public void setHuman_id(String human_id) {
 		this.human_id = human_id;
 	}
+	
+	
 
 	public void setDepartment_name(String department_name) {
 		this.department_name = department_name;

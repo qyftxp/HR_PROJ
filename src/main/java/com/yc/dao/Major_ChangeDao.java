@@ -15,11 +15,14 @@ public interface Major_ChangeDao {
 	
 	public int updateEmployee(Employee employee);
 	
-	public int updateEmployee(String human_file_status);
+	public int updateStatus(Employee employee);
+	
 	
 	public int deleteMajor_change(int mch_id);
 	
 	public int updateMajor_change(Major_change major_change);
 	
+	
+	public int updateStatusByHuman_id(Employee employee);
 }
 

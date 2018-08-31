@@ -3,9 +3,12 @@
 
 </head>
 
+
+
 <script type="text/javascript">
 	$( onChangeDate = function find(date){
 		var datetime=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); 
+
 		/* alert(datetime); */
 		  	$('#statusListTable').datagrid({
 			url:'major_changeFindStatus.action',
@@ -33,7 +36,8 @@
 						width : 170,
 						align : 'center',
 						formatter : function(val, row, index) {
-							var str = '<a href="/pages/transfer/transferRegister.jsp" onclick="showStatusDetail('+row.human_id+')">详情</a>';
+							var str = '<a href="findemployee.action?human_id='+row.human_id+'"+>详情</a>';
+							//alert(str);
 							return str;
 						}} 
 			]]
@@ -41,9 +45,9 @@
 	});
 	
 	
-	function showStatusDetail(human_id) {
-		/* var row = $('#statusListTable').datagrid('getData').rows[index];*/
-		/* alert("123");  */
+	/* function showStatusDetail(human_id) {
+		var row = $('#statusListTable').datagrid('getData').rows[index];
+		 alert("123"); 
 		$.ajax({
 			url:'findemployee.action',
 			data:{"human_id":human_id},
@@ -58,7 +62,7 @@
 				}
 			}
 		});
-	}
+	} */
 	
 	
 </script>

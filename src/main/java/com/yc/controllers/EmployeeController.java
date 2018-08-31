@@ -36,7 +36,7 @@ public class EmployeeController {
 		
 		//档案编号：时间+身份证后4位
 		String card = employee.getHuman_id_card();
-		System.out.println(employee);
+		//System.out.println(employee);
 		String card4 = card.substring(card.length()-4,card.length());
 		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
@@ -67,25 +67,26 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping("/findemployee.action")
-	@ResponseBody
-	public JsonModel findEmployee(HttpServletRequest request){
+	public String findEmployee(HttpServletRequest request){
 		Map<String,Object> map=new HashMap<String,Object>();
-		if(request.getParameter("huf_id")!=null && !request.getParameter("huf_id").equals("")){
-			map.put("huf_id",request.getParameter("huf_id"));
+		if(request.getParameter("human_id")!=null && !request.getParameter("human_id").equals("")){
+			map.put("human_id",request.getParameter("human_id"));
 		}
 		
 		List<Employee> list= employeeBizImpl.findAllBysql(map);
 		JsonModel jm=new JsonModel();
-		System.out.println(list+"nananananananananannnananananananana");
+		//System.out.println(list+"nananananananananannnananananananana");
 		if(list!=null && list.size()>0){
 			jm.setCode(1);
 			jm.setRows(list);
+			
 		}else{
 			jm.setCode(0);
 			jm.setMsg("查询失败");
 		}
-		System.out.println(jm+"123456789");
-		return jm;
+		request.setAttribute("jm", jm.getRows());
+		//System.out.println(jm+"123456789");
+		return "transfer/transferRegister";
 	}
 	
 	

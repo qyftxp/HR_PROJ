@@ -1,5 +1,7 @@
 package com.yc.biz;
 
+import java.util.List;
+
 import com.yc.bean.User;
 
 public interface UserBiz {
@@ -11,4 +13,6 @@ public interface UserBiz {
 	 * @return
 	 */
 	public User login(User user);
+	
+	
 }

@@ -61,10 +61,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addMajor_change_register" parameterType="Major_change" keyProperty="mch_id" useGeneratedKeys="true">
 		insert into major_change(human_id,department_name,human_name,major_kind_name,major_name,
 		salary_standard_name,new_department_name,new_major_kind_name,new_major_name,new_salary_standard_name,
-		register,regist_time,change_reason,salary_sum,new_salary_sum) values(#{human_id},#{department_name},#{human_name},#{major_kind_name},
+		register,regist_time,change_reason) values(#{human_id},#{department_name},#{human_name},#{major_kind_name},
 		#{major_name},#{salary_standard_name},#{new_department_name},#{new_major_kind_name},
-		#{new_major_name},#{new_salary_standard_name},#{register},#{regist_time},#{change_reason},
-		#{salary_sum},#{new_salary_sum})
+		#{new_major_name},#{new_salary_standard_name},#{register},#{regist_time},#{change_reason})
 	</insert>
 	
 	
@@ -83,11 +82,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update human_file set human_file_status=#{human_file_status} where huf_id=#{huf_id}
 	</update>
 	
+	<!-- 调动审核时的人员信息状态修改 -->
+	<update id="updateStatus1" parameterType="Employee">
+		update human_file set human_file_status=#{human_file_status} where human_id=#{human_id}
+	</update>
+	
 	<!-- 更新 人员调动后的信息 -->
 	<update id="updateEmployee" parameterType="Employee">
-		update human_file set department_name=#{new_department_name},human_major_kind_name=#{new_major_kind_name},
-		human_major_name=#{new_major_name},salary_standard_name=#{new_salary_standard_name},salary_sum=#{new_salary_sum},
-	    human_file_status=#{human_file_status} where huf_id=#{huf_id}
+		update human_file set department_name=#{department_name},human_major_kind_name=#{human_major_kind_name},
+		human_major_name=#{human_major_name},salary_standard_name=#{salary_standard_name},
+	    human_file_status=#{human_file_status} where human_id=#{human_id}
 	</update>
 	
 	<!-- 当调动复核失败时,删除调动备份数据 -->

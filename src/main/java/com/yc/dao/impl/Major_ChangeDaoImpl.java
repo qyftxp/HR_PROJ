@@ -56,8 +56,14 @@ public class Major_ChangeDaoImpl implements Major_ChangeDao {
 	 * 修改人员信息:状态为调动待审核
 	 */
 	@Override
-	public int updateEmployee(String human_file_status) {
-		return sqlSession.update("com.yc.dao.Major_ChangeDaoMapper.updateStatus",human_file_status);
+	public int updateStatus(Employee employee) {
+		return sqlSession.update("com.yc.dao.Major_ChangeDaoMapper.updateStatus",employee);
+	}
+	
+	
+	@Override
+	public int updateStatusByHuman_id(Employee employee) {
+		return sqlSession.update("com.yc.dao.Major_ChangeDaoMapper.updateStatus1",employee);
 	}
 	
 	
@@ -68,6 +74,8 @@ public class Major_ChangeDaoImpl implements Major_ChangeDao {
 	public int updateMajor_change(Major_change major_change) {
 		return sqlSession.update("com.yc.dao.Major_ChangeDaoMapper.updateMajor_change",major_change);
 	}
+
+
 
 	
 

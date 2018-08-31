@@ -133,7 +133,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 2,
 					"text" : "调动审核",
 					"attributes" : {
-						"url" : "<iframe width='100%'  height='100%' src='resadmin/resfood/show.jsp' />"
+						"url" : "<iframe width='100%'  height='100%' src='pages/transfer/WaitCheck.jsp' />"
 					}
 				} ];
 		
