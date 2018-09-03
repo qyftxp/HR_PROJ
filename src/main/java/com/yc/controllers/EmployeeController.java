@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.bean.Employee;
 import com.yc.bean.SalaryGrantDetails;
 import com.yc.biz.EmployeeBiz;
+import com.yc.biz.EngageResumeBiz;
 import com.yc.dao.SalaryGrantDetailsDao;
 import com.yc.web.model.JsonModel;
+
+
+import java.util.ArrayList;
+
+
+
 
 @Controller
 public class EmployeeController {
@@ -28,15 +36,17 @@ public class EmployeeController {
 	@Resource(name="salaryGrantDetailsDaoImpl")
 	private SalaryGrantDetailsDao salaryGrantDetailsDaoImpl;
 	
+	@Resource(name="engageResumeBizImpl")
+	private EngageResumeBiz engageResumeBizImpl;
+	
 	
 	@RequestMapping("employee.action")
 	@ResponseBody
-	public JsonModel addEmployee(JsonModel jsonmodel,Employee employee){
+	public JsonModel addEmployee(JsonModel jsonmodel,Employee employee,HttpServletRequest request){
 		
 		
 		//档案编号：时间+身份证后4位
 		String card = employee.getHuman_id_card();
-		System.out.println(employee);
 		String card4 = card.substring(card.length()-4,card.length());
 		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
@@ -55,6 +65,21 @@ public class EmployeeController {
 		//实发薪酬总额
 		employee.setPaid_salary_sum(sgd.getSalary_paid_sum());
 		
+		employee.setHuman_histroy_id(1);
+		
+		employee.setHuman_picture("照片");
+		
+		employee.setCheck_status("待复核");
+		
+		employee.setHuman_file_status("登录待复核");
+		
+		List<Employee> employeelist = new ArrayList<Employee>();
+		
+		employeelist.add(employee);
+		ServletContext application = request.getServletContext();
+		application.setAttribute("employeelist", employeelist);//将提交的档案存到application中，待复核通过存数据库
+		
+		System.out.println(employee);
 		boolean flat = employeeBizImpl.addEmployee(employee);
 		if(flat){
 			jsonmodel.setCode(1);
@@ -65,6 +90,7 @@ public class EmployeeController {
 		return jsonmodel;
 		
 	}
+	
 	
 	
 	@RequestMapping("/findemployee.action")
@@ -89,6 +115,5 @@ public class EmployeeController {
 		//System.out.println(jm+"123456789");
 		return "transfer/transferRegister";
 	}
-	
 	
 }

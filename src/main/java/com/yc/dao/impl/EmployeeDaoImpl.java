@@ -1,5 +1,6 @@
 package com.yc.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -69,6 +70,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public List<Employee> findAllByStatus(Map map) {
 		 List<Employee> list =sqlSession.selectList("com.yc.dao.EmployeeDaoMapper.findStatusEmployee",map);
 		 return list;
+	}
+
+	
+	@Override
+	public int  findCount(String name) {
+		 return (int) sqlSession.selectOne("com.yc.dao.EmployeeDaoMapper.findByName",name);
+	}
+	@Override
+	public Double  findCountSalary_sumByName(String name) {
+		 return  sqlSession.selectOne("com.yc.dao.EmployeeDaoMapper.findCountSalary_sumByName",name);
+	}
+
+	@Override
+	public List<Employee> findAll() {
+		Map map=new HashMap();
+		return sqlSession.selectOne("com.yc.dao.EmployeeDaoMapper.findStatusEmployee",map);
 	}
 
 }

@@ -24,5 +24,6 @@ public interface Major_ChangeDao {
 	
 	
 	public int updateStatusByHuman_id(Employee employee);
+
 }
 

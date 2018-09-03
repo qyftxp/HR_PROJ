@@ -3,31 +3,16 @@
 
 <div class="easyui-panel" title="职位发布登记" style="height:100%">
 	<form id="add" method="post">
-		<table cellpadding="10" cellspacing="60" style="border-collapse:separate; border-spacing:50px 0px;">
+
+		<table cellpadding="5" cellspacing="50" style="border-collapse:separate; border-spacing:30px 0px;">
 			<tr>
-				<td>I级机构：&nbsp;&nbsp;
-					<select class="first_kind_nameList" name="first_kind_nameList">
-						<c:forEach items="${first_kind_nameList}" var="list">
-							<option value="${list.attribute_name}">${list.attribute_name}</option>
+				<td>部门类型：
+					<select class="department_nameList" name="department_nameList">
+						<c:forEach items="${department_nameList}" var="list">
+							<option value="${list.department_name}">${list.department_name}</option>
 						</c:forEach>
 					</select>
 				</td>
-				<td>II级机构：&nbsp;
-					<select class="second_kind_nameList" name="second_kind_nameList">
-						<c:forEach items="${second_kind_nameList}" var="list">
-							<option value="${list.attribute_name}">${list.attribute_name}</option>
-						</c:forEach>
-					</select>
-				</td>
-				<td>III级机构：
-					<select class="third_kind_nameList" name="third_kind_nameList">
-						<c:forEach items="${third_kind_nameList}" var="list">
-							<option value="${list.attribute_name}">${list.attribute_name}</option>
-						</c:forEach>
-					</select>
-				</td>				
-			</tr>
-			<tr>
 				<td>招聘类型：
 					<select class="engage_typeList" name="engage_typeList">
 						<c:forEach items="${engage_typeList}" var="list">

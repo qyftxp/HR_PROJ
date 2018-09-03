@@ -5,14 +5,15 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
 
 import com.yc.biz.DepartmentBiz;
 import com.yc.biz.MajorKindBiz;
 import com.yc.biz.PublicCharBiz;
-import com.yc.biz.SalaryStandarBiz;
+import com.yc.biz.SalaryStandardBiz;
 
 public class InitListener implements ServletContextListener {
 
@@ -43,7 +44,7 @@ public class InitListener implements ServletContextListener {
     	MajorKindBiz majorKindBizImpl = (MajorKindBiz) ac.getBean("majorKindBizImpl");
     	
     	//薪酬标准
-    	SalaryStandarBiz salaryStandarBizImpl = (SalaryStandarBiz) ac.getBean("salaryStandarBizImpl");
+    	SalaryStandardBiz salaryStandardBizImpl = (SalaryStandardBiz) ac.getBean("salaryStandardBizImpl");
     	
     	
     	List<?> human_hobbyList = publicCharBizImpl.findChar("爱好");
@@ -64,6 +65,23 @@ public class InitListener implements ServletContextListener {
     	
     	List<?> human_sexList = publicCharBizImpl.findChar("性别");
     	
+    	List<?> major_kind_nameList = publicCharBizImpl.findChar("职位分类");
+    	List<?> major_nameList = publicCharBizImpl.findChar("职位名称");
+    	List<?> engage_typeList = publicCharBizImpl.findChar("招聘类型");
+    	
+    	//试题分类级别
+    	List<?> first_kind_nameList = publicCharBizImpl.findChar("试题I级分类");   	
+    	List<?> second_kind_nameList = publicCharBizImpl.findChar("试题II级分类");
+    	
+    	//评价
+    	List<?> image_degreeList = publicCharBizImpl.findChar("形象评价");
+    	List<?> native_language_degreeList = publicCharBizImpl.findChar("口才评价");
+    	List<?> EQ_degreeList = publicCharBizImpl.findChar("EQ评价");
+    	List<?> IQ_degreeList = publicCharBizImpl.findChar("IQ评价");
+    	List<?> foreign_language_degreeList = publicCharBizImpl.findChar("外语水平");
+    	List<?> response_speed_degreeList = publicCharBizImpl.findChar("应变能力");
+    	List<?> multi_quality_degreeList = publicCharBizImpl.findChar("综合素质");
+    	
     	//所有部门
     	List<?> department_nameList = departmentBizImpl.getDepartmentList();
     	
@@ -71,7 +89,7 @@ public class InitListener implements ServletContextListener {
     	List<?> human_major_kind_nameList = majorKindBizImpl.findMajorKind();
     	
     	//所有薪酬标准
-    	List<?> salary_standardList = salaryStandarBizImpl.find(null);
+    	List<?> salary_standardList = salaryStandardBizImpl.find(null);
     	System.out.println(salary_standardList);
     	
     	
@@ -90,6 +108,21 @@ public class InitListener implements ServletContextListener {
     	application.setAttribute("human_major_kind_nameList", human_major_kind_nameList);
     	application.setAttribute("salary_standardList", salary_standardList);
     	
+    	//试题分类级别
+    	application.setAttribute("first_kind_nameList", first_kind_nameList);
+    	application.setAttribute("second_kind_nameList", second_kind_nameList);
+    	
+    	//评价
+    	application.setAttribute("image_degreeList", image_degreeList);
+    	application.setAttribute("native_language_degreeList", native_language_degreeList);
+    	application.setAttribute("EQ_degreeList", EQ_degreeList);
+    	application.setAttribute("IQ_degreeList", IQ_degreeList);
+    	application.setAttribute("foreign_language_degreeList", foreign_language_degreeList);
+    	application.setAttribute("response_speed_degreeList", response_speed_degreeList);
+    	application.setAttribute("multi_quality_degreeList", multi_quality_degreeList);
+    	
+    	application.setAttribute("major_kind_nameList", major_kind_nameList);
+    	application.setAttribute("major_nameList", major_nameList);
+    	application.setAttribute("engage_typeList", engage_typeList);
     }
-	
 }

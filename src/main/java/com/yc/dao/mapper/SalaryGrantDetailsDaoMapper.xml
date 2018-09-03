@@ -11,12 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from salary_grant_details  where salary_grant_id=#{id}
 	</select>
 
-
 	
 	<select id="getSalaryGrantDetailsByname" resultType="SalaryGrantDetails" parameterType="String">
 		select * from salary_grant_details  where salary_grant_name=#{name}
 	</select>
-
 
 	<!-- 批量插入 -->
 	<insert id="addSalaryStandardDetailsList" parameterType="ArrayList" >
@@ -30,4 +28,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 #{item.deduct_sum},#{item.salary_standard_sum},#{item.salary_paid_sum})
         </foreach>
     </insert>
+    <!-- 批量修改 -->
+	<update id="updateSalaryStandardDetailsList" parameterType="java.util.List">
+		update salary_grant_details
+		<set>
+			<if test="salary_standard_id != null">salary_standard_id = #{item.salary_standard_id},</if>
+			<if test="salary_standard_name != null">salary_standard_name = #{item.salary_standard_name},</if>
+			<if test="salary_grant_id != null">salary_grant_id = #{item.salary_grant_id},</if>
+			<if test="human_id != null">human_id = #{item.human_id},</if>
+			<if test="human_name != null">human_name = #{item.human_name},</if>
+			<if test="bouns_sum != null">bouns_sum = #{item.bouns_sum},</if>
+			<if test="deduct_sum != null">deduct_sum = #{item.deduct_sum},</if>
+			<if test="salary_standard_sum != null">salary_standard_sum = #{item.salary_standard_sum},</if>
+			<if test="demand_salaray_sum != null">demand_salaray_sum = #{item.demand_salaray_sum},</if>
+			<if test="salary_paid_sum != null">salary_paid_sum = #{item.salary_paid_sum},</if>
+		</set>
+		where id in
+		<foreach collection="list" item="item" open="(" close=")"
+			separator=",">
+			#{item.id}
+		</foreach>
+	</update>
+    
 </mapper>

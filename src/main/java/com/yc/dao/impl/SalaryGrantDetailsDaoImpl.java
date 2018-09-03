@@ -17,13 +17,16 @@ public class SalaryGrantDetailsDaoImpl implements SalaryGrantDetailsDao {
 		return this.sqlSession.selectList("com.yc.dao.SalaryGrantDetailsDaoMapper.getSalaryGrantDetailsByid", id);
 	}
 	@Override
-	public void addSalaryStandardDetailsList(List<SalaryGrantDetails> list) {
+	public void addSalaryGrantDetailsList(List<SalaryGrantDetails> list) {
 		this.sqlSession.insert("com.yc.dao.SalaryGrantDetailsDaoMapper.addSalaryStandardDetailsList", list);
 	}
-
 	@Override
 	public SalaryGrantDetails findByname(String name) {
 		return this.sqlSession.selectOne("com.yc.dao.SalaryGrantDetailsDaoMapper.getSalaryGrantDetailsByname", name);
 	}
-
+	@Override
+	public void updateSalaryGrantDetails(List<SalaryGrantDetails> list) {
+		this.sqlSession.update("com.yc.dao.SalaryGrantDetailsDaoMapper.updateSalaryGrantDetailsList", list);
+	}
+	
 }

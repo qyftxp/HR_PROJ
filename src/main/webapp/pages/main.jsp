@@ -100,8 +100,8 @@ function addTab(title, iconCls, closable, href, content) {
 				{
 					"id" : 2,
 					"text" : "薪酬标准登记复核",
-					"attributes" : {
 
+					"attributes" : {
 						"url" : "<iframe width='100%'  height='100%' src='pages/salary/salarystandardcheck.jsp' />"
 					}
 				},
@@ -141,9 +141,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 2,
 					"text" : "调动审核",
 					"attributes" : {
-
 						"url" : "<iframe width='100%'  height='100%' src='pages/transfer/WaitCheck.jsp' />"
-
 					}
 				} ];
 		
@@ -243,7 +241,7 @@ function addTab(title, iconCls, closable, href, content) {
 			<li><span> 招聘考试管理 </span>
 					<ul>
 							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
-								onclick="javascript:addTab('考试出题','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/addEngageSubjects.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试出题</a></li>
+								onclick="javascript:addTab('考试出题','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/addEngageExamDetails.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试出题</a></li>
 							<li><a href="javascript:void(0);" style="text-decoration:none; color:black;"
 								onclick="javascript:addTab('考试答题','icon-mini-add',true,'','<iframe src=pages/recruitment/exam/addEngageAnswer.jsp  frameborder=0 style=border:0;width:100%;height:99.5%;></iframe>')">考试答题</a>
 							</li>

@@ -30,6 +30,7 @@ public class MajorKindBizImpl implements MajorKindBiz {
 		return list;
 	}
 
+
 	
 	@Override
 	public List<Major> findNameMajor(String kind_name) {

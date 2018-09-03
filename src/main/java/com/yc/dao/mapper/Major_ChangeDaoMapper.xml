@@ -103,5 +103,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delMajor_change">
 		delete from major_change where human_id=#{human_id}
 	</delete>
+
 	
 </mapper>

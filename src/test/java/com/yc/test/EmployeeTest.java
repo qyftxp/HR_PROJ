@@ -69,7 +69,10 @@ public class EmployeeTest {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
 		String s = "1996-03-29";
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/qyftxp/HR_PROJ.git
 		el.setHuman_birthday(s);
 		el.setHuman_birthplace("广东");
 		
@@ -97,11 +100,13 @@ public class EmployeeTest {
 		
 		el.setRegist_time("2018-9-10");
 		
-		el.setCheck_time(new Date());
-		el.setChange_time(new Date());
-		el.setLastly_change_time(new Date());
-		el.setDelete_time(new Date());
-		el.setRecovery_time(new Date());
+		//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		el.setCheck_time(sdf.format(new Date()));
+		el.setChange_time(sdf.format(new Date()));
+		el.setLastly_change_time(sdf.format(new Date()));
+		el.setDelete_time(sdf.format(new Date()));
+		el.setRecovery_time(sdf.format(new Date()));
 		el.setHuman_file_status("正常");
 		
 		
@@ -117,7 +122,6 @@ public class EmployeeTest {
 		
     }
 	
-
 	@Test
     public void findChar() throws Exception {
 		

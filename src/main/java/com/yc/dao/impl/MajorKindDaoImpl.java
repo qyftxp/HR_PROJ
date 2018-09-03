@@ -40,5 +40,4 @@ public class MajorKindDaoImpl implements MajorKindDao {
 		return list;
 	}
 
-
 }

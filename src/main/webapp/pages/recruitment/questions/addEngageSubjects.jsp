@@ -42,23 +42,20 @@
 			</div>
 			<br>
 			<div>
-				答案a：<input class="easyui-textbox" name="message"
-					data-options="multiline:true" style="height: 40px; width: 700px"></input>
+
+				答案a：<input class="easyui-textbox" name="message" data-options="multiline:true" style="height: 40px; width: 700px"></input>
 			</div>
 			<br>
 			<div>
-				答案b：<input class="easyui-textbox" name="message"
-					data-options="multiline:true" style="height: 40px; width: 700px"></input>
+				答案b：<input class="easyui-textbox" name="message" data-options="multiline:true" style="height: 40px; width: 700px"></input>
 			</div>
 			<br>
 			<div>
-				答案c：<input class="easyui-textbox" name="message"
-					data-options="multiline:true" style="height: 40px; width: 700px"></input>
+				答案c：<input class="easyui-textbox" name="message" data-options="multiline:true" style="height: 40px; width: 700px"></input>
 			</div>
 			<br>
 			<div>
-				答案d：<input class="easyui-textbox" name="message"
-					data-options="multiline:true" style="height: 40px; width: 700px"></input>
+				答案d：<input class="easyui-textbox" name="message" data-options="multiline:true" style="height: 40px; width: 700px"></input>
 			</div>
 			<br>
 		</div>

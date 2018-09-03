@@ -216,6 +216,7 @@
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onClick="add()" id="btnExport">提交</a>
 	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    	<a href="pages/transfer/WaitCheck.jsp" class="easyui-linkbutton"  >返回</a>
+
 	    </div>
 	
 	</div>

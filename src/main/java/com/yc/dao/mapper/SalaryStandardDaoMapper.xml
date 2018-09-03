@@ -10,8 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSalaryStandardById" resultType="SalaryStandard"
 		parameterType="String">
 		select * from salary_standard where standard_id = #{id}
-
 	</select>
+	<!-- 多条件查询 -->
 	<select id="getSalaryStandardByMap" resultType="SalaryStandard" parameterType="SalaryStandard">
 		select * from salary_standard
 		<where>
@@ -63,4 +63,3 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where ssd_id=#{ssd_id};
 	</update>
 </mapper>
-

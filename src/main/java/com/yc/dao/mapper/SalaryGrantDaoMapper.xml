@@ -10,7 +10,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllSalaryGrant" resultType="SalaryGrant" >
 		select * from salary_grant  
 	</select>
+	<!-- 多条件查询 -->
+	<select id="getSalaryGrantByMap" resultType="SalaryGrant" parameterType="map">
+		select * from salary_grant   
+		<where>
+			<if test="standard_name != null">
+				and standard_name = #{standard_name}
+			</if>
+			<if test="startTime !=null and startTime !='' ">
+         <![CDATA[ and regist_time  >=  #{startTime}  ]]>
+			</if>
+			<if test="endTime !=null and endTime!='' ">
+         <![CDATA[ and regist_time <=  #{endTime}  ]]>
+			</if>
+		</where>
+	</select>	
 	
+	
+	<!-- 根据主键修改 -->
+	<update id="updateSalaryGrant" parameterType="SalaryGrant">
+		update salary_grant
+		<set>
+			<if test="salary_grant_id != null">salary_grant_id = #{salary_grant_id},</if>
+			<if test="department_name != null"> department_name = #{department_name},</if>
+			<if test="human_amount != null"> human_amount = #{human_amount},</if>
+			<if test="salary_sum != null">salary_sum = #{salary_sum},</if>
+			<if test="salary_paid_sum != null">salary_paid_sum = #{salary_paid_sum},</if>
+			<if test="register != null">register = #{register},</if>
+			<if test="regist_time != null">regist_time = #{regist_time},</if>
+			<if test="checker != null">checker = #{checker},</if>
+			<if test="check_time != null">check_time = #{check_time},</if>
+			<if test="check_status != null">check_status = #{check_status},</if>
+			<if test="check_status != null">check_status = #{check_status},</if>
+		</set>
+		where sgr_id=#{sgr_id};
+	</update>
+	
+	
+	<!-- 批量插入数据 -->
+	<insert id="addSalaryGrantList" parameterType="ArrayList">
+		insert into salary_grant(
+			salary_grant_id,department_name,human_amount,salary_sum,
+			salary_paid_sum,register,regist_time,checker ;,check_time,check_status
+		)values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.salary_grant_id},#{item.department_name},#{item.human_amount},#{item.salary_sum},
+			#{item.salary_paid_sum},#{item.register},#{item.regist_time},#{item.checker},#{item.check_time},#{item.check_status})
+		</foreach>
+	</insert>
 	
 	
 	<!-- 插入数据 -->
@@ -23,5 +70,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{salary_paid_sum},#{register},#{regist_time},#{checker},#{check_time},#{check_status}
 		)
 	</insert>
+	
 	
 </mapper>

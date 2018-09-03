@@ -6,10 +6,13 @@ import com.yc.bean.SalaryGrantDetails;
 
 public interface SalaryGrantDetailsDao {
 	
-	public List<SalaryGrantDetails> findByid(String id);
-	
 
+public List<SalaryGrantDetails> findByid(String id);
+	
 	public SalaryGrantDetails findByname(String name);
 	
-	public void addSalaryStandardDetailsList(List<SalaryGrantDetails> list);
+
+	public void addSalaryGrantDetailsList(List<SalaryGrantDetails> list);
+	
+	public void updateSalaryGrantDetails(List<SalaryGrantDetails> list);
 }

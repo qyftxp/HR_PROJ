@@ -77,6 +77,7 @@ public class Major_ChangeDaoImpl implements Major_ChangeDao {
 
 
 
+
 	
 
 }

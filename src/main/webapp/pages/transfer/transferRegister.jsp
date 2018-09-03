@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
+
 <script>
 	function goBack(){
 	    window.history.go(-1)
@@ -35,6 +36,7 @@
     </style>
 
  
+
 <script type="text/javascript">
 
 	function add() {
@@ -54,6 +56,7 @@
 					alert("调动登记失败!请检查信息是否正确!");
 					alert(data.msg);
 				}
+
 			}
 		});
 	}
@@ -83,12 +86,36 @@ function onchangeMajorKind(obj){
 			$("#Major").html(str); 
 		}
 	});
-	
-	
 }
+
 
 </script>
 
+
+ 
+<script type="text/javascript">
+
+	function add() {
+		alert("123");
+/* 		var button = this;
+		$(button).linkbutton('disable'); */
+	    $.ajax({
+			url :'major_changeRegister.action',
+			method : 'POST',
+			data : $("#add_transfer").serialize(), 
+			success : function(data) {
+				if(data.code==1){
+					alert("调动登记提交成功,等待审核");
+					//$(button).linkbutton('enable');
+			        $('#btnExport').linkbutton('disable');
+				}else{
+					alert("调动登记失败!请检查信息是否正确!"+data.msg);
+				}
+			}
+		});
+	}
+
+</script>
 
 <body class="easyui-layout">
 		
@@ -199,6 +226,7 @@ function onchangeMajorKind(obj){
 	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    	<a href="pages/transfer/find.jsp" class="easyui-linkbutton"  >返回</a>
 	   
+
 	    </div>
 	</div>
 	
@@ -219,6 +247,7 @@ function onchangeMajorKind(obj){
 		document.getElementById("register_date").value=GetDateStr();
 		
 		
+
 
 </script>
 	

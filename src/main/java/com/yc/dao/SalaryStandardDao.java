@@ -12,7 +12,6 @@ public interface SalaryStandardDao {
 	 */
 	public SalaryStandard findByStandard_id(String id);
 	
-
 	public void addSalaryStandard(SalaryStandard ss);	
 		
 	public List<SalaryStandard> find(Map<String, String> map);
