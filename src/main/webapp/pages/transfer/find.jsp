@@ -80,19 +80,20 @@ div {
 	margin-top: 10px;
 	background-color: #F3F3F3;
 	padding-bottom: 10px;
+	position:relative;
 }
 
 #child {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -15% 0 0 -40%;
+	margin: -15px 0 0 -40%;
 }
 </style>
 <body class="easyui-layout">
 	<div style="height:100%">
 	<form id="findDepartment" method="post">
-		<div style="margin: 20px 0 0 50px" class="find_table_slelct">
+		<div style="margin: 20px 0 0 50px;" class="find_table_slelct">
 			<div id="child">
 				<table id="aa" CELLPADDING="5" CELLSPACING="70" style="border-collapse: separate; border-spacing: 50px 0px;">
 					<tr>

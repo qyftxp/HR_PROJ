@@ -12,7 +12,9 @@ public interface Major_changeBiz {
 	
 	public List<Major_change> findAllBysql(Map map);
 	
-	public boolean deleteMajor_change(int mch_id,Employee employee);
+	public boolean deleteMajor_change(String human_id,Employee employee);
 	
 	public boolean updateMajor_change(Major_change major_change,Employee employee);
+	
+	public boolean deleteMajor_changeOnly(String human_id);
 }

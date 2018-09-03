@@ -26,16 +26,11 @@ public class Major_changeBizImpl implements Major_changeBiz {
 	@Override
 	@Transactional
 	public boolean transferRegister(Major_change major_change, String human_file_status,int huf_id) {
-
 		int r = major_ChangeDao.addMajor_change(major_change);
-		
 		Employee employee=new Employee();
-		
 		employee.setHuf_id(huf_id);
 		employee.setHuman_file_status(human_file_status);
-		
 		int status = major_ChangeDao.updateStatus(employee);
-
 		if (r == 1 && status == 1) {
 			return true;
 		} else {
@@ -54,12 +49,9 @@ public class Major_changeBizImpl implements Major_changeBiz {
 	
 	@Transactional
 	@Override
-	public boolean deleteMajor_change(int mch_id,Employee employee) {
-		
-		int status = major_ChangeDao.updateStatus(employee);
-		
-		int r=major_ChangeDao.deleteMajor_change(mch_id);
-		
+	public boolean deleteMajor_change(String human_id,Employee employee) {
+		int status = major_ChangeDao.updateStatusByHuman_id(employee);
+		int r=major_ChangeDao.deleteMajor_change(human_id);
 		if(status==1 && r==1){
 			return true;
 		}else {
@@ -70,16 +62,21 @@ public class Major_changeBizImpl implements Major_changeBiz {
 	@Transactional
 	@Override
 	public boolean updateMajor_change(Major_change major_change, Employee employee) {
-		
 		int r=major_ChangeDao.updateMajor_change(major_change);
-		
-		System.out.println("r="+r);
-		
 		int personal=major_ChangeDao.updateEmployee(employee);
-	
 		int status=major_ChangeDao.updateStatusByHuman_id(employee);
-		
 		if(r==1 && personal==1 && status==1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	@Override
+	public boolean deleteMajor_changeOnly(String human_id) {
+		int r=major_ChangeDao.deleteMajor_change(human_id);
+		if(r==1){
 			return true;
 		}else{
 			return false;

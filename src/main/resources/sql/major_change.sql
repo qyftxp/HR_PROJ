@@ -7,27 +7,21 @@
  */
 
 delete from major_change;
-
+update major_change set status='调动待审核' where mch_id=22;
 select * from  major_change; 
 drop table major_change;
 create table major_change ( 
 	mch_id int auto_increment primary key,  -- mch_id" : 主键，自动增长列  
 	department_name varchar(20)   , -- 部门名称
-	
 	major_kind_name varchar(60) ,-- major_kind_name" : 职位分类名称
-	
 	major_name varchar(60) ,-- major_name" : 职位名称 
 	new_department_name varchar(20)  , -- 新部门名称
-	
 	new_major_kind_name varchar(60) ,-- new_major_kind_name" : 新职位分类名称
-	
 	new_major_name varchar(60) ,-- new_major_name" : 新职位名称
 	human_id varchar(60) ,  -- human_id" : 人力资源档案编号
 	human_name varchar(60) ,-- human_name" : 姓名 
-	
 	salary_standard_name varchar(60) ,-- salary_standard_name" : 薪酬标准名称
 	salary_sum double(9,2) ,-- salary_sum" : 薪酬总额 
-	
 	new_salary_standard_name varchar(60) ,-- new_salary_standard_name" : 新薪酬标准名称
 	new_salary_sum double(9,2) ,-- new_salary_sum" : 新薪酬总额 
 	change_reason text ,-- change_reason" : 调动原因

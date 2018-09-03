@@ -6,7 +6,33 @@
 	    window.history.go(-1)
 	}
 </script>
+<style>
+        table{
+            position: relative;
+            height: 380px;
+        }
+        #add_transfer strong{
+            width: 80px;
+            height: 30px;
+            line-height:30px;
+            display: inline-block;
+        }
+        #add_transfer input{
+            width: 200px;
+            height: 28px;
+            border:1px solid #F3976C;
+        }
+        #add_transfer select{
+            width: 204px;
+            height: 34px;
+            border:1px solid #F3976C;
+        }
+        #add_transfer tr{
+            width: 400px;
+            height: 30px;
+        }
 
+    </style>
 
  
 <script type="text/javascript">
@@ -25,7 +51,8 @@
 					//$(button).linkbutton('enable');
 			        $('#btnExport').linkbutton('disable');
 				}else{
-					alert("调动登记失败!请检查信息是否正确!"+data.msg);
+					alert("调动登记失败!请检查信息是否正确!");
+					alert(data.msg);
 				}
 			}
 		});
@@ -133,7 +160,7 @@ function onchangeMajorKind(obj){
 		    		<tr>
 		    			<td><strong>新职位名称:</strong>
 			    			 <select  name="new_major_name" id="Major" data-options="required:true">
-		    				
+		    					
 		    				</select>
 						</td>
 						
@@ -170,7 +197,7 @@ function onchangeMajorKind(obj){
 	    <div style="text-align:center;padding:20px">
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onClick="add()" id="btnExport">提交</a>
 	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="goBack()" >返回</a>
+	    	<a href="pages/transfer/find.jsp" class="easyui-linkbutton"  >返回</a>
 	   
 	    </div>
 	</div>
@@ -190,6 +217,8 @@ function onchangeMajorKind(obj){
 		    return y+"-"+m+"-"+d+" "+h+":"+mi+":"+s;
 		}
 		document.getElementById("register_date").value=GetDateStr();
+		
+		
 
 </script>
 	

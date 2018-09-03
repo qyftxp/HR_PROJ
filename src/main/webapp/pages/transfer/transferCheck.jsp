@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <style type="text/css">
-.radioSpan {
+/* .radioSpan {
 	position: relative;
 	border: 1px solid #95B8E7;
 	background-color: #fff;
@@ -32,7 +32,41 @@
 	top: 50%;
 	left: 50%;
 	margin: -15% 0 0 -40%;
-}
+} */
+
+#CheckStatus strong{
+            width: 85px;
+            height: 30px;
+            line-height: 30px;
+            display: inline-block;
+        }
+        #CheckStatus input,#CheckStatus select,textarea{
+            border:1px solid #F3976C;
+        }
+        #CheckStatus input{
+            width: 190px;
+            height: 25px;
+        }
+        #ff select{
+            width: 194px;
+            height: 31px;
+        }
+        #CheckStatus .radioSpan .inp{
+            width: 20px;
+            position: absolute;
+            top:-3px;
+            left:-5px;
+
+        }
+        #CheckStatus .radioSpan .inp2{
+            width: 20px;
+            position: absolute;
+            top:-3px;
+            left:80px;
+        }
+        #CheckStatus .radioSpan{
+            position: relative;
+        }
 
 
 
@@ -181,7 +215,7 @@
 		<div style="text-align:center;padding:20px">
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onClick="add()" id="btnExport">提交</a>
 	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="goBack()" >返回</a>
+	    	<a href="pages/transfer/WaitCheck.jsp" class="easyui-linkbutton"  >返回</a>
 	    </div>
 	
 	</div>

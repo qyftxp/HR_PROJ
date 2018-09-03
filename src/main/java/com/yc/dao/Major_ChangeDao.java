@@ -18,7 +18,7 @@ public interface Major_ChangeDao {
 	public int updateStatus(Employee employee);
 	
 	
-	public int deleteMajor_change(int mch_id);
+	public int deleteMajor_change(String human_id);
 	
 	public int updateMajor_change(Major_change major_change);
 	

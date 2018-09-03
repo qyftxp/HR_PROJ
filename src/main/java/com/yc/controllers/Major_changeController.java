@@ -29,22 +29,38 @@ public class Major_changeController {
 	@RequestMapping("/major_changeRegister.action")
 	@ResponseBody
 	public JsonModel Register(Major_change major_change,HttpServletRequest request){
-		String human_file_status="调动待审核";
-		Integer huf_id=Integer.parseInt(request.getParameter("huf_id"));
-		
-		major_change.setStatus("调动待审核");
-		
-		JsonModel jm=new JsonModel();
-		try {
-			boolean bl=major_changeBiz.transferRegister(major_change, human_file_status,huf_id);
-			jm.setCode(1);
-			jm.setObj(bl);
-		} catch (Exception e) {
-			jm.setCode(0);
-			jm.setMsg("调动登记失败"+e.getMessage());
-			System.out.println(e.getMessage());
+		String human_id=major_change.getHuman_id();
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("human_id", human_id);
+		List<Major_change> list=major_changeBiz.findAllBysql(map);
+		if(list!=null || !list.equals("")){
+			boolean isDelete=major_changeBiz.deleteMajor_changeOnly(human_id);
 		}
 		
+		String human_file_status="调动待审核";
+		Integer huf_id=Integer.parseInt(request.getParameter("huf_id"));
+		major_change.setStatus("调动待审核");
+		String change_reason=major_change.getChange_reason();
+		JsonModel jm=new JsonModel();
+		String new_major_name=major_change.getNew_major_name();
+		if(change_reason!=null && !change_reason.equals("")){
+			if(new_major_name!=null && !new_major_name.equals("") ){
+				try {
+					boolean bl=major_changeBiz.transferRegister(major_change, human_file_status,huf_id);
+					jm.setCode(1);
+					jm.setObj(bl);
+				} catch (Exception e) {
+					jm.setCode(0);
+					jm.setMsg("调动登记失败"+e.getMessage());
+				}
+			}else{
+				jm.setCode(0);
+				jm.setMsg("新职位名称不能为空,请重新选择");
+			}
+		}else{
+			jm.setCode(0);
+			jm.setMsg("调动原因不能为空,请填写");
+		}	
 		return jm;
 	}
 	
@@ -55,13 +71,11 @@ public class Major_changeController {
 			if(request.getParameter("department_name")!=null && !request.getParameter("department_name").equals("")){
 				map.put("department_name",request.getParameter("department_name"));
 			}
-			System.out.println(request.getParameter("department_name")+"22222");
 			if(request.getParameter("regist_time")!=null && !request.getParameter("regist_time").equals("")){
 				map.put("regist_time",request.getParameter("regist_time"));
 			}
 			List<Employee> list=employeeBiz.findAllByStatus(map);
 			
-			System.out.println(list);
 			
 			JsonModel jm=new JsonModel();
 			if(list!=null && list.size()>0){
@@ -100,6 +114,7 @@ public class Major_changeController {
 	@RequestMapping("/findWaitCheck.action")
 	@ResponseBody
 	public JsonModel findWaitCheck(HttpServletRequest request){
+		
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("status", "调动待审核");
 		List<Major_change> list=major_changeBiz.findAllBysql(map);
@@ -120,10 +135,9 @@ public class Major_changeController {
 	@ResponseBody
 	public JsonModel checkTransferStatus(Major_change major_change,HttpServletRequest request){
 		int check_status=Integer.parseInt(request.getParameter("check_status"));
-		System.out.println(request.getParameter("check_status"));
 		
 		major_change.setStatus("正常");
-		
+		String check_reason=major_change.getCheck_reason();
 		Employee employee=new Employee();
 		employee.setDepartment_name(request.getParameter("new_department_name"));
 		employee.setHuman_major_kind_name(major_change.getNew_major_kind_name());
@@ -134,25 +148,30 @@ public class Major_changeController {
 		
 		JsonModel json=new JsonModel();
 		
-		if(check_status==1){
-			boolean bl=major_changeBiz.updateMajor_change(major_change, employee);
-			if(bl==true){
-				json.setCode(1);
-				json.setMsg("审核通过");
+			if(check_status==1){
+				if(check_reason!=null && !check_reason.equals("")){
+					boolean bl=major_changeBiz.updateMajor_change(major_change, employee);
+					if(bl==true){
+						json.setCode(1);
+						json.setMsg("审核通过");
+					}else{
+						json.setCode(0);
+						json.setMsg("操作失败"+"审核通过");
+					}
+				}else{
+					json.setCode(0);
+					json.setMsg("审核意见不能为空,请重新输入!");
+				}
 			}else{
-				json.setCode(0);
-				json.setMsg("操作失败"+"审核通过");
+				boolean b2=major_changeBiz.deleteMajor_change(major_change.getHuman_id(),employee);
+				if(b2==true){
+					json.setCode(1);
+					json.setMsg("操作成功,审核未通过");
+				}else{
+					json.setCode(0);
+					json.setMsg("操作失败");
+				}
 			}
-		}else{
-			boolean b2=major_changeBiz.deleteMajor_change(major_change.getMch_id(),employee);
-			if(b2==true){
-				json.setCode(1);
-				json.setMsg("操作成功,审核未通过");
-			}else{
-				json.setCode(0);
-				json.setMsg("操作失败");
-			}
-		}
 		
 		return json;
 		

@@ -48,8 +48,8 @@ public class Major_ChangeDaoImpl implements Major_ChangeDao {
 	 * 调动审核未通过
 	 */
 	@Override
-	public int deleteMajor_change(int mch_id) {
-		return sqlSession.delete("com.yc.dao.Major_ChangeDaoMapper.delMajor_change",mch_id);
+	public int deleteMajor_change(String human_id) {
+		return sqlSession.delete("com.yc.dao.Major_ChangeDaoMapper.delMajor_change",human_id);
 	}
 	
 	/**

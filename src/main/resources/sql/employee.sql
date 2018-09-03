@@ -131,7 +131,7 @@ delete from human_file;
 		human_qq,human_email,human_hobby,human_speciality,human_sex,human_party,human_nationality,human_race,human_birthday,human_birthplace,
 		human_age,human_educated_degree,human_educated_years,human_educated_major,human_id_card,remark,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,
 		major_change_amount,file_chang_amount,human_histroy_id,human_family_membership,human_picture,check_status,register,checker,changer,regist_time,
-		check_time,change_time,lastly_change_time,delete_time,recovery_time,human_file_status) values('244444444','人事部','王五','长沙市','425300','工程师','看看','131412',
+		check_time,change_time,lastly_change_time,delete_time,recovery_time,human_file_status) values('133333333','人事部','赵六','长沙市','425300','工程师','看看','131412',
 		'建设银行','4332225668855','1278354705','1278354705@qq.com','篮球','编程','男','党员','中国','汉','1996-03-29','广东',
 		22,'本科','18','网络工程','431124199603291666','很有实力，录用','8000.0','6000.0','8000.0','8888.0',
 		0,1,1,'成员之间和睦，相亲相爱','jlkkjjj','待复核','张三','李四','',now(),now(),now(),now(),now(),now(),'正常');

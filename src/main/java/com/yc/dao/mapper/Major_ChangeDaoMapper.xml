@@ -101,9 +101,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 当调动复核失败时,删除调动备份数据 -->
 	<delete id="delMajor_change">
-		delete from major_change where mch_id=#{mch_id}
+		delete from major_change where human_id=#{human_id}
 	</delete>
-	
-	
 	
 </mapper>
