@@ -16,7 +16,7 @@ public class SalaryStandard implements Serializable{
 	private	String 	check_time ;// check_time" : 复核时间 
 	private	String	change_time;// check_time" : 复核时间 
 	private	Double	salary_sum ;// salary_sum" : 薪酬总额 
-	private	String	check_status ;// check_status" : 是否经过复核 
+	private	String	check_status ;// check_status" :复核状态
 	private	String	change_status ;// change_status" : 更改状态 
 	private	String	check_comment ;//check_comment" : 复核意见
 	private	String	remark ;//- check_status" : 复核状态

@@ -12,11 +12,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from salary_standard where standard_id = #{id}
 	</select>
 	<!-- 多条件查询 -->
-	<select id="getSalaryStandardByMap" resultType="SalaryStandard" parameterType="SalaryStandard">
+	<select id="getSalaryStandardByMap" resultType="SalaryStandard" parameterType="map">
 		select * from salary_standard
 		<where>
 			<if test="standard_name != null">
 				and standard_name like #{standard_name}
+			</if>
+			<if test="check_status != null">
+				and check_status= #{check_status}
 			</if>
 			<if test="startTime !=null and startTime !='' ">
          <![CDATA[ and regist_time  >=  #{startTime}  ]]>

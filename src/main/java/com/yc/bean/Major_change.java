@@ -32,6 +32,7 @@ public class Major_change implements Serializable{
 	private String checker ;  //-- checker" : 复核人
 	private String regist_time ;  //-- regist_time" : 登记时间   
 	private String check_time ;  //  -- check_time" : 复核时间 
+	
 	private String status;     //     --status查询的状态
 	
 	public Integer getMch_id() {
@@ -216,12 +217,6 @@ public class Major_change implements Serializable{
 				+ check_status + ", register=" + register + ", checker=" + checker + ", regist_time=" + regist_time
 				+ ", check_time=" + check_time + ", status=" + status + "]";
 	}
-	
-	
-
-	
-
-	
 	
 	
 }

@@ -90,23 +90,22 @@ function addTab(title, iconCls, closable, href, content) {
 		/* 薪酬标准 */
 		
 		 var salaryTreeData = [
-				{
+				/* {
 					"id" : 1,
 					"text" : "薪酬标准登记",
-					"attributes" : {
-						"url" : "<iframe width='100%' height='100%' src='' />"
+					"attributes" : {								
+						"url" : "<iframe width='100%' height='100%' src='pages/salary/addsalarystandard.jsp' />"
 					}
-				},
+				}, */
 				{
-					"id" : 2,
+					"id" : 1,
 					"text" : "薪酬标准登记复核",
-
 					"attributes" : {
 						"url" : "<iframe width='100%'  height='100%' src='pages/salary/salarystandardcheck.jsp' />"
 					}
 				},
 				{
-					"id" : 3,
+					"id" : 2,
 					"text" : "薪酬标准查询",
 					"attributes" : {
 						"url" : "<iframe width='100%' height='100%' src='pages/salary/salarystandardfind.jsp' />"
@@ -141,7 +140,7 @@ function addTab(title, iconCls, closable, href, content) {
 					"id" : 2,
 					"text" : "调动审核",
 					"attributes" : {
-						"url" : "<iframe width='100%'  height='100%' src='pages/transfer/WaitCheck.jsp' />"
+						"url" : "<iframe width='100%'  height='100%' src='resadmin/resfood/show.jsp' />"
 					}
 				} ];
 		

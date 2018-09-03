@@ -21,7 +21,6 @@ public interface EmployeeDao {
 	public int addModifyEmployee(ModifyEmployee memployee);
 
 
-
 	public int findCount(String name);
 
 	public Double findCountSalary_sumByName(String name);

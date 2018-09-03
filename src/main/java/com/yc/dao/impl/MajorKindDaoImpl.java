@@ -33,7 +33,6 @@ public class MajorKindDaoImpl implements MajorKindDao {
 		return list;
 	}
 
-
 	@Override
 	public List<Major> findNameMajor(String kind_name) {
 		List<Major> list = sqlSession.selectList("com.yc.dao.MajorKindDaoMapper.findNameMajor",kind_name);

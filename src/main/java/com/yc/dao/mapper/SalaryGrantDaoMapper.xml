@@ -70,6 +70,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{salary_paid_sum},#{register},#{regist_time},#{checker},#{check_time},#{check_status}
 		)
 	</insert>
-	
-	
 </mapper>

@@ -4,6 +4,7 @@
 
 <script type="text/javascript">
 	function find() {
+		alert("查询");
 		$('#dg').datagrid('loadData', {
 			total : 0,
 			rows : []
@@ -22,6 +23,7 @@
 					singleSelect : true,
 					queryParams : {
 						SalaryStandard : $("#fom").serialize(),
+						"check_status" : "正常",
 					},
 					columns : [ [
 							{
@@ -63,6 +65,54 @@
 								width : 150,
 								align : 'center'
 							},
+							{
+								field : 'regist_time',
+								title : '登记时间',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'check_time',
+								title : '复核时间',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'change_time',
+								title : '变更时间',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'salary_sum',
+								title : '薪酬总额 ',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'check_status',
+								title : '复核状态 ',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'change_status',
+								title : '更改状态 ',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'check_comment',
+								title : '复核意见 ',
+								width : 150,
+								align : 'center'
+							},
+							{
+								field : 'remark',
+								title : '备注 ',
+								width : 150,
+								align : 'center'
+							},
 
 							{
 								field : '_operate', //_operate 的作用是告诉easyui的框架，这个列不是从json中取出来的
@@ -76,7 +126,6 @@
 										alert(a); */
 									var str = '<a href="javascript:findx('
 											+ index + ')">详情</a>';
-									alert(str);
 									return str;
 								}
 							} ] ]
@@ -106,10 +155,28 @@
 								standard_id : h[i].standard_id,
 								standard_name : h[i].standard_name,
 								item_name : h[i].item_name,
-								salary : h[i].salary,
+								salary : h[i].salary
 							}
 						});
 					}
+				} else {
+					alert(data.msg);
+				}
+
+			}
+		});
+	}
+	function addsalarystandard() {
+		$.ajax({
+			url : 'addsalarystandard.action',
+			method : 'POST',
+			dataType : 'JSON',
+			data : $("#fm").serialize(),
+			success : function(data) {
+				if (data.code == 1) {
+					alert(data.msg);
+					$('#dlg').dialog('close');
+
 				} else {
 					alert(data.msg);
 				}
@@ -169,11 +236,27 @@
 			</div>
 			<br />
 			<div>
-				<label>制定者：</label> <input id="designer" name="designer"
+				<label>基本工资：</label> <input id="designer1" name="基本工资"
+					class="easy-textbox" required="true">
+			</div>
+			<div>
+				<label>出差补助：</label> <input id="designer2" name="出差补助"
+					class="easy-textbox" required="true">
+			</div>
+
+			<div>
+				<label>交通补助：</label> <input id="designer3" name="交通补助"
+					class="easy-textbox" required="true">
+			</div>
+			<div>
+				<label>误餐补助：</label> <input id="designer3" name="误餐补助"
+					class="easy-textbox" required="true">
+			</div>
+			<div>
+				<label>年终奖：</label> <input id="designer4" name="年终奖"
 					class="easy-textbox" required="true">
 			</div>
 			<br />
-
 			<div>
 				<label>薪酬总额：</label> <input id="salary_sum" name="salary_sum"
 					class="easy-textbox" required="true">
@@ -184,34 +267,35 @@
 
 	<div id="dlg-buttons">
 		<a href="javascript:void(0)" id="saveResfood"
-			class="easyui-linkbutton c6" iconCls="icon-ok" onClick=""
-			style="width: 90px">Save</a> <a href="javascript:void(0)"
-			class="easyui-linkbutton" iconCls="icon-cancel"
-			onClick="javascript:$('#dlg').dialog('close')" style="width: 90px">Cancel</a>
+			class="easyui-linkbutton c6" iconCls="icon-ok"
+			onClick="addsalarystandard()" style="width: 90px">Save</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" onClick="javascript:$('#dlg').dialog('close')"
+			style="width: 90px">Cancel</a>
 	</div>
 
 	<script type="text/javascript">
 		$(function() {
-			var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
+			var pager = $('#dg').datagrid().datagrid('getPager'); 
 			pager.pagination({
 				buttons : []
 			});
-		})
+		});
 	</script>
 	<script type="text/javascript">
-		$(
-				function() {
-					var pager = $('#std').datagrid().datagrid('getPager'); // get the pager of datagrid
-					pager.pagination({
-						buttons : [ {
-							iconCls : 'icon-add',
-							handler : function() {
-								$("#dlg").dialog('open').dialog('center')
-										.dialog('setTitle', '薪酬标准基本信息登记');
-							}
-						} ]
-					});
-				})
+		$(function() {
+			var pager=$('#std').datagrid().datagrid('getPager'); 
+			pager.pagination({
+				buttons : [ {
+					text : "添加",
+					iconCls : 'icon-add',
+					handler : function() {
+						$("#dlg").dialog('open').dialog('center').dialog(
+								'setTitle', '薪酬标准基本信息登记');
+					}
+				} ]
+			});
+		});
 	</script>
 </body>
 </html>

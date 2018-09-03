@@ -6,8 +6,6 @@ public class PublicChar implements Serializable{
 	
 	private static final long serialVersionUID = -4033576806211675108L;
 
-
-
 	private Integer pbc_id;
 	
 	private String attribute_kind;

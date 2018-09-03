@@ -71,8 +71,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		 List<Employee> list =sqlSession.selectList("com.yc.dao.EmployeeDaoMapper.findStatusEmployee",map);
 		 return list;
 	}
-
-	
 	@Override
 	public int  findCount(String name) {
 		 return (int) sqlSession.selectOne("com.yc.dao.EmployeeDaoMapper.findByName",name);

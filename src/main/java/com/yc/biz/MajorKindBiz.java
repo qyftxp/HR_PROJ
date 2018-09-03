@@ -14,7 +14,6 @@ public interface MajorKindBiz {
 	 * */
 	public List<Major> findMajor(String kind_id);
 
-
 	
 	/**
 	 * 根据职位分类名称查询所有职位

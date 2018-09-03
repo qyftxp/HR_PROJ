@@ -35,5 +35,4 @@ public class MajorKindController {
 		return jsonmodel;
 		
 	}
-
 }

@@ -191,6 +191,7 @@ public class Employee implements Serializable{
 		return human_race;
 	}
 
+
 	public String getHuman_birthday() {
 		return human_birthday;
 	}
@@ -458,7 +459,6 @@ public class Employee implements Serializable{
 		this.check_time = check_time;
 	}
 
-
 	public void setHuman_file_status(String human_file_status) {
 		this.human_file_status = human_file_status;
 	}
@@ -500,7 +500,6 @@ public class Employee implements Serializable{
 		this.recovery_time = recovery_time;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Employee [huf_id=" + huf_id + ", human_id=" + human_id + ", department_name=" + department_name
@@ -524,6 +523,5 @@ public class Employee implements Serializable{
 				+ ", delete_time=" + delete_time + ", recovery_time=" + recovery_time + ", human_file_status="
 				+ human_file_status + "]";
 	}
-
 	
 }
